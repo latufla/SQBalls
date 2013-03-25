@@ -24,16 +24,15 @@ public class Field extends SQObjectBase{
     private var _laps:uint = 1;
 
     private var _border:BitmapData;
-    private var _waypoints:Vector.<Object>;
 
     private var _racers:Vector.<UserInfo>;
 
     private var _runners:Vector.<UserInfo>;
     private var _finishers:Vector.<UserInfo>;
 
-    public function Field(border:BitmapData, waypoints:Vector.<Object>, racers:Vector.<UserInfo>) {
+    public function Field(border:BitmapData, racers:Vector.<UserInfo>) {
         _border = border;
-        _waypoints = waypoints;
+
         _racers = racers;
         _runners = _racers.concat();
         _finishers = new Vector.<UserInfo>();
@@ -44,7 +43,6 @@ public class Field extends SQObjectBase{
     override protected function init():void{
         PhysEngineConnector.instance.createBorders(this, _border);
     }
-
 
     public function updateRaceProgress():void{
 //        if(raceIsFinished)
@@ -101,17 +99,6 @@ public class Field extends SQObjectBase{
 
     public function get border():BitmapData {
         return _border;
-    }
-
-    public function get waypoints():Vector.<Object> {
-        return _waypoints;
-    }
-
-    public function get finishWaypointDesc():Object{
-        var res:Vector.<Object> = _waypoints.filter(function (e:Object, i:int, v:Vector.<Object>):Boolean{
-            return e.isFinish;
-        });
-        return res[0];
     }
 
     public function getRacerByName(name:String):UserInfo{

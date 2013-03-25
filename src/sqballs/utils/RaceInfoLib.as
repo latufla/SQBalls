@@ -16,11 +16,8 @@ import sqballs.model.Field;
 
 public class RaceInfoLib {
 
-//    [Embed(source="../../../assets/lvl1.png")]
-//    private static var DemoRace1BorderViewClass:Class;
-//
-//    [Embed(source="../../../assets/levels/1/level_1_borders.png")]
-//    private static var Race1BorderViewClass:Class;
+    [Embed(source="../../../assets/levels/1/borders.png")]
+    private static var FieldBorderViewClass:Class;
 
     public function RaceInfoLib() {
         init();
@@ -46,7 +43,10 @@ public class RaceInfoLib {
 //        f.libDesc = StarlingAssetsLib.LEVEL_1;
 //        return f;
 
-        return null;
+        var border:BitmapData = Bitmap(new FieldBorderViewClass()).bitmapData;
+        var f:Field = new Field(border, Config.gameInfo.allRacers);
+        f.libDesc = StarlingAssetsLib.LEVEL_1;
+        return f;
     }
 }
 }

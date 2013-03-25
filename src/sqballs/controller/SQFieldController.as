@@ -10,6 +10,7 @@ package sqballs.controller {
 import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
 import core.controller.FieldController;
+import core.utils.nape.CustomCircle;
 import core.utils.nape.CustomMaterial;
 import core.utils.nape.CustomPolygon;
 import core.utils.nape.CustomShape;
@@ -49,7 +50,7 @@ public class SQFieldController extends FieldController{
     override public function draw():void{
         super.draw();
 
-        for each(var p:ControllerBase in ratControllers){
+        for each(var p:ControllerBase in ballControllers){
             p.draw();
             _view.addChild(p.view);
         }
@@ -62,7 +63,7 @@ public class SQFieldController extends FieldController{
             field.updateRaceProgress();
     }
 
-    public function get ratControllers():Vector.<ControllerBase>{
+    public function get ballControllers():Vector.<ControllerBase>{
         return getControllersByBehaviorClass(BallMoveBehavior);
     }
 
@@ -71,7 +72,7 @@ public class SQFieldController extends FieldController{
     }
 
     public function getRatControllerByUserInfo(p:UserInfo):ControllerBase{
-        var ratCs:Vector.<ControllerBase> = ratControllers;
+        var ratCs:Vector.<ControllerBase> = ballControllers;
         var res:Vector.<ControllerBase> = ratCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
             return e.object.name == p.name;
         });
@@ -88,30 +89,23 @@ public class SQFieldController extends FieldController{
     }
 
     private function createBalls(f:Field):void {
-//        var finishWp:Object = f.finishWaypointDesc;
-//        if(!finishWp)
-//            return;
-//
-//        var startPoints:Vector.<Point> = finishWp.inLine.getEvenDistributedPoints(6);
-//        startPoints.shift();
-//        startPoints.pop();
-//
-//        var racer:UserInfo;
-//        var rat:SQObjectBase;
-//        var bhs:Vector.<BehaviorBase>;
-//        var n:uint = f.racers.length;
-//        for(var i:uint = 0; i < n; i++){
-//            rat = SQObjectBase.create(StarlingAssetsLib.RAT, new Point(startPoints[i].x + i * 10, startPoints[i].y + 20), new <CustomShape>[new CustomPolygon(0, 0, 20, 44)], new CustomMaterial(), 1);
-//            racer = f.racers[i];
-//            rat.name = racer.name;
-//
-//            if(racer is BotInfo)
+        var user:UserInfo;
+        var ball:SQObjectBase;
+        var bhs:Vector.<BehaviorBase>;
+        var n:uint = f.racers.length;
+        for(var i:uint = 0; i < n; i++){
+            ball = SQObjectBase.create(StarlingAssetsLib.BALL, new Point(150, 250), new <CustomShape>[new CustomCircle(50)], new CustomMaterial(), 1);
+            user = f.racers[i];
+            ball.name = user.name;
+
+//            if(user is BotInfo)
 //                bhs = new <BehaviorBase>[new AIControlBehavior(), new RatMoveBehavior(), new TrapBehavior(), new BoostBehavior(), new ShootBehavior(), new DeathBehavior()];
 //            else
 //                bhs = new <BehaviorBase>[new UserControlBehavior(), new RatMoveBehavior(), new TrapBehavior(), new BoostBehavior(), new ShootBehavior(), new DeathBehavior(), new StatDisplayBehavior()];
-//
-//            add(SQControllerBase.create(rat, bhs));
-//        }
+
+            bhs = new <BehaviorBase>[new BallMoveBehavior()];
+            add(SQControllerBase.create(ball, bhs));
+        }
     }
 
     private function createItems(f:Field):void {

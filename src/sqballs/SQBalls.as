@@ -8,7 +8,7 @@ import flash.events.Event;
 
 import starling.core.Starling;
 
-[SWF(width="800", height="600", backgroundColor="#FFFFFF", frameRate="60")]
+[SWF(width="1024", height="768", backgroundColor="#FFFFFF", frameRate="60")]
 public class SQBalls extends Sprite {
 
     public static var starlingConnector:Starling;

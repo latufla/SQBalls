@@ -50,7 +50,7 @@ public class SceneController extends EventDispatcher{
         Config.gameInfo = new GameInfo(player);
         trace(Config.gameInfo);
 
-//        EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_RACE));
+        EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_RACE));
         Config.sceneController = this;
     }
 
@@ -104,8 +104,8 @@ public class SceneController extends EventDispatcher{
         if(!_field.view.parent)
             Config.mainScene.addChild(_field.view);
 
-        var passedTime:Number = e.passedTime != 0 ? e.passedTime : 0.00001;
-        _field.doStep(passedTime, _fieldDebugView);
+//        var passedTime:Number = e.passedTime != 0 ? e.passedTime : 0.00001;
+        _field.doStep(1 / 60, _fieldDebugView);
     }
 
     public function get view():MovieClip {

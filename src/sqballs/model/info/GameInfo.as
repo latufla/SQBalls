@@ -56,21 +56,13 @@ public class GameInfo {
     }
 
     private function createOpponents(p:UserInfo):Vector.<UserInfo>{
-//        var countries:Array = [UserInfo.CHINA, UserInfo.JAPAN, UserInfo.RUSSIA, UserInfo.USA];
-//        var excessCountryId:int = countries.indexOf(_player.country);
-//        if(excessCountryId == -1)
-//            return null;
-//
-//        countries.splice(excessCountryId, 1);
-//
-//        var opps:Vector.<UserInfo> = new Vector.<UserInfo>();
-//        var bot:UserInfo;
-//        for (var i:uint = 0; i < Config.maxBotsCount && countries.length != 0; i++){
-//            bot = BotInfo.create(i + 1, "rat" + (i + 1), countries.shift(), BotInfo.SMART);
-//            opps.push(bot);
-//        }
-//        return opps;
-        return new Vector.<UserInfo>();
+         var opps:Vector.<UserInfo> = new Vector.<UserInfo>();
+        var bot:UserInfo;
+        for (var i:uint = 0; i < Config.maxBotsCount; i++){
+            bot = BotInfo.create(i + 1, "rat" + (i + 1), BotInfo.SMART);
+            opps.push(bot);
+        }
+        return opps;
     }
 }
 }

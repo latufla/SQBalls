@@ -52,7 +52,7 @@ public class PhysEngineConnector {
     }
 
     public function initField(f:FieldController):void {
-        _spaces[f] ||= new Space();
+        _spaces[f] ||= new Space(new Vec2(0, 300));
         initEventListeners(_spaces[f]);
     }
 

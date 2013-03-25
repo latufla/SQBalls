@@ -18,7 +18,7 @@ public class FPSCounter extends Sprite{
     private var ticks:uint = 0;
     private var tf:TextField;
 
-    public function FPSCounter(xPos:int=0, yPos:int=0, color:uint=0x000000, fillBackground:Boolean=false, backgroundColor:uint=0x000000) {
+    public function FPSCounter(xPos:int=0, yPos:int=0, color:uint=0xFFFFFF, fillBackground:Boolean=false, backgroundColor:uint=0x000000) {
         x = xPos;
         y = yPos;
         tf = new TextField();

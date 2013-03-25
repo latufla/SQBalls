@@ -38,7 +38,7 @@ public class Config {
     }
 
     public static function get maxBotsCount():uint{
-        return 3;
+        return 30;
     }
 }
 }
