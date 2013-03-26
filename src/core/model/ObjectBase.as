@@ -205,5 +205,6 @@ public class ObjectBase {
     public function createAsset():*{
         return null;
     }
+
 }
 }

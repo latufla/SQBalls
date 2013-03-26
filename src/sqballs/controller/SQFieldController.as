@@ -20,8 +20,10 @@ import flash.geom.Point;
 import sqballs.behaviors.StatDisplayBehavior;
 import sqballs.behaviors.control.ai.AIControlBehavior;
 import sqballs.behaviors.control.user.UserControlBehavior;
+import sqballs.behaviors.gameplay.BallAbsorbBehavior;
 import sqballs.behaviors.gameplay.DeathBehavior;
 import sqballs.behaviors.gameplay.BallMoveBehavior;
+import sqballs.model.Ball;
 
 import sqballs.model.Field;
 import sqballs.model.SQObjectBase;
@@ -50,7 +52,7 @@ public class SQFieldController extends FieldController{
     override public function draw():void{
         super.draw();
 
-        for each(var p:ControllerBase in ballControllers){
+        for each(var p:ControllerBase in getControllersByClass(BallController)){
             p.draw();
             _view.addChild(p.view);
         }
@@ -63,16 +65,12 @@ public class SQFieldController extends FieldController{
             field.updateRaceProgress();
     }
 
-    public function get ballControllers():Vector.<ControllerBase>{
-        return getControllersByBehaviorClass(BallMoveBehavior);
+    public function get playerBallController():ControllerBase{
+        return getBallControllerByUserInfo(field.player);
     }
 
-    public function get playerRatController():ControllerBase{
-        return getRatControllerByUserInfo(field.player);
-    }
-
-    public function getRatControllerByUserInfo(p:UserInfo):ControllerBase{
-        var ratCs:Vector.<ControllerBase> = ballControllers;
+    public function getBallControllerByUserInfo(p:UserInfo):ControllerBase{
+        var ratCs:Vector.<ControllerBase> = getControllersByClass(BallController);
         var res:Vector.<ControllerBase> = ratCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
             return e.object.name == p.name;
         });
@@ -90,20 +88,21 @@ public class SQFieldController extends FieldController{
 
     private function createBalls(f:Field):void {
         var user:UserInfo;
-        var ball:SQObjectBase;
+        var ball:Ball;
         var bhs:Vector.<BehaviorBase>;
         var n:uint = f.racers.length;
-        for(var i:uint = 0; i < 1; i++){
-            ball = SQObjectBase.create(StarlingAssetsLib.BALL, new Point(150, 250), new <CustomShape>[new CustomCircle(50)], new CustomMaterial(), 1);
+        for(var i:uint = 0; i < 4; i++){
+            ball = Ball.create(StarlingAssetsLib.BALL, new Point(150 + i * 180, 250), new CustomMaterial(), 1);
+            ball.radius = 50;
             user = f.racers[i];
             ball.name = user.name;
 
             if(user is BotInfo)
                 bhs = new <BehaviorBase>[new BallMoveBehavior()];
             else
-                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior()];
+                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior(), new BallAbsorbBehavior()];
 
-            add(SQControllerBase.create(ball, bhs));
+            add(BallController.create(ball, bhs));
         }
     }
 

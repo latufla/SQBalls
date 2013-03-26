@@ -8,39 +8,16 @@
 package sqballs.model {
 import core.controller.ControllerBase;
 import core.model.ObjectBase;
-import core.utils.nape.CustomMaterial;
-import core.utils.nape.CustomShape;
-import core.utils.nape.PhysEngineConnector;
-
-import flash.geom.Point;
-
-import nape.shape.Shape;
 
 import sqballs.utils.Config;
 import sqballs.utils.StarlingAssetsLib;
 
 public class SQObjectBase extends ObjectBase {
-
     protected var _pivotX:int = 50;
     protected var _pivotY:int = 50;
 
     public function SQObjectBase() {
         super();
-    }
-
-    public function resizeShape(w:uint, h:uint):void{
-        var shape:Shape = PhysEngineConnector.instance.getCircleShape(this);
-    }
-
-    public static function create(libDesc:String, pos:Point, shapes:Vector.<CustomShape>, material:CustomMaterial, interactionGroup:int):SQObjectBase{
-        var obj:SQObjectBase = new SQObjectBase();
-        obj.libDesc = libDesc;
-        obj.shapes = shapes;
-        obj.material = material;
-        obj.position = pos;
-        obj.interactionGroup = interactionGroup;
-
-        return obj;
     }
 
     override public function createAsset():*{

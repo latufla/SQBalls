@@ -12,7 +12,7 @@ import flash.utils.clearTimeout;
 import flash.utils.setTimeout;
 
 import sqballs.SQBalls;
-import sqballs.controller.SQControllerBase;
+import sqballs.controller.BallController;
 import sqballs.model.SQObjectBase;
 import sqballs.utils.Config;
 

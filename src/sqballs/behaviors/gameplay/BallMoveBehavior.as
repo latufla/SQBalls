@@ -12,6 +12,7 @@ import core.model.ObjectBase;
 import flash.geom.Point;
 
 import sqballs.behaviors.control.ControlBehavior;
+import sqballs.model.Ball;
 import sqballs.model.SQObjectBase;
 
 public class BallMoveBehavior extends BehaviorBase{
@@ -34,7 +35,7 @@ public class BallMoveBehavior extends BehaviorBase{
         if(!controlBehavior)
             return;
 
-        var obj:SQObjectBase = _controller.object as SQObjectBase;
+        var obj:SQObjectBase = _controller.object as Ball;
         if(!obj)
             return;
 

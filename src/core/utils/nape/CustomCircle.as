@@ -23,5 +23,13 @@ public class CustomCircle extends CustomShape {
     override public function toPhysEngineObj():Shape{
         return new Circle(_radius, new Vec2(_radius, _radius));
     }
+
+    public function get radius():uint {
+        return _radius;
+    }
+
+    public function set radius(value:uint):void {
+        _radius = value;
+    }
 }
 }

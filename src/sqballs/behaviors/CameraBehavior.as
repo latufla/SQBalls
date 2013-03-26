@@ -33,7 +33,7 @@ public class CameraBehavior extends BehaviorBase{
     }
 
     private function applyFocus(c:SQFieldController):void {
-        var playerRatC:ControllerBase = c.playerRatController;
+        var playerRatC:ControllerBase = c.playerBallController;
         if(!playerRatC)
             return;
 

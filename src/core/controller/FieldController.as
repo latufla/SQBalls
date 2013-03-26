@@ -81,5 +81,12 @@ public class FieldController extends ControllerBase{
         });
     }
 
+    public function getControllersByClass(cls:Class):Vector.<ControllerBase>{
+        return _controllers.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
+            return e is cls;
+        });
+    }
+
+
 }
 }

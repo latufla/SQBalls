@@ -12,16 +12,16 @@ import core.model.ObjectBase;
 
 import flash.geom.Point;
 
-import sqballs.model.SQObjectBase;
+import sqballs.model.Ball;
 
-public class SQControllerBase extends ControllerBase{
+public class BallController extends ControllerBase{
 
-    public function SQControllerBase() {
+    public function BallController() {
         super();
     }
 
-    public static function create(obj:ObjectBase, behaviors:Vector.<BehaviorBase> = null):SQControllerBase{
-        var c:SQControllerBase = new SQControllerBase();
+    public static function create(obj:ObjectBase, behaviors:Vector.<BehaviorBase> = null):BallController{
+        var c:BallController = new BallController();
         c.object = obj;
         for each(var p:BehaviorBase in behaviors){
             c.addBehavior(p);
@@ -31,9 +31,12 @@ public class SQControllerBase extends ControllerBase{
     }
 
     override protected function align():void {
-        var obj:SQObjectBase = _object as SQObjectBase;
+        var obj:Ball = _object as Ball;
         _view.pivotX = obj.pivotX;
         _view.pivotY = obj.pivotY;
+
+        _view.width = obj.rectSize.width;
+        _view.height = obj.rectSize.height;
 
         var pos:Point = _object.position;
         _view.x = pos.x;

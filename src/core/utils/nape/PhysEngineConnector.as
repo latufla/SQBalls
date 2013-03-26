@@ -23,7 +23,7 @@ import nape.callbacks.InteractionType;
 import nape.geom.Vec2;
 import nape.phys.Body;
 import nape.phys.BodyType;
-import nape.shape.Shape;
+import nape.shape.Circle;
 import nape.space.Space;
 import nape.util.BitmapDebug;
 
@@ -68,9 +68,11 @@ public class PhysEngineConnector {
         _physObjects[obj] ||= new Body(BodyType.DYNAMIC);
     }
 
-    public function getCircleShape(obj:ObjectBase):Shape{
+    public function resizeTopmostCircle(obj:ObjectBase, r:uint):void{
         var physObj:Body = _physObjects[obj];
-        return physObj.shapes[0];
+        var topmostCircle:Circle =  physObj.shapes.at(0) as Circle;
+        if(topmostCircle)
+            topmostCircle.radius = r;
     }
 
     public function addObjectToField(f:FieldController, o:ObjectBase):void {
