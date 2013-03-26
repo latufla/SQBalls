@@ -33,11 +33,15 @@ public class BallMoveBehavior extends BehaviorBase{
         if(!controlBehavior)
             return;
 
-        trace(controlBehavior.moveTo, controlBehavior.forceK);
+//        trace(_controller.object.name, controlBehavior.moveTo, controlBehavior.forceK);
 
-//        var obj:ObjectBase = _controller.object;
-//        if(controlBehavior.run)
-//            applyRun(obj, step);
+        var obj:ObjectBase = _controller.object;
+
+        var nextPos:Point = controlBehavior.moveTo;
+        if(nextPos)
+            applyRun(obj, nextPos);
+
+
 //        else
 //            applyStoppage(obj);
 //
@@ -48,8 +52,17 @@ public class BallMoveBehavior extends BehaviorBase{
 //            applyTurnLeft(obj, step, controlBehavior.run);
     }
 
-    private function applyRun(obj:ObjectBase, step:Number):void{
-        obj.applyImpulse(new Point(0, -590 * step));
+    private function applyRun(obj:ObjectBase, nextPos:Point):void{
+        var pos:Point = obj.position;
+        pos = pos.subtract(nextPos);
+        pos.normalize(1);
+        pos.x *= 30;
+        pos.y *= 30;
+        obj.applyImpulse(pos);
+
+//        trace("applyRun", pos);
+
+//        obj.applyImpulse(new Point(0, -590 * step));
     }
 
     private function applyStoppage(obj:ObjectBase):void {

@@ -93,7 +93,7 @@ public class SQFieldController extends FieldController{
         var ball:SQObjectBase;
         var bhs:Vector.<BehaviorBase>;
         var n:uint = f.racers.length;
-        for(var i:uint = 0; i < n; i++){
+        for(var i:uint = 0; i < 1; i++){
             ball = SQObjectBase.create(StarlingAssetsLib.BALL, new Point(150, 250), new <CustomShape>[new CustomCircle(50)], new CustomMaterial(), 1);
             user = f.racers[i];
             ball.name = user.name;

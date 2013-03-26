@@ -1,28 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="615a3a05-d088-430e-90b0-16d3dcb57996" name="Default" comment="balls + field, gravity active">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/ball.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/levels/1/borders.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/levels/1/level.jpg" />
+    <list default="true" id="615a3a05-d088-430e-90b0-16d3dcb57996" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BallMoveBehavior.as" afterPath="$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BallMoveBehavior.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/behaviors/CameraBehavior.as" afterPath="$PROJECT_DIR$/src/sqballs/behaviors/CameraBehavior.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/utils/Config.as" afterPath="$PROJECT_DIR$/src/sqballs/utils/Config.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/behaviors/control/ControlBehavior.as" afterPath="$PROJECT_DIR$/src/sqballs/behaviors/control/ControlBehavior.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/behaviors/gameplay/DeathBehavior.as" afterPath="$PROJECT_DIR$/src/sqballs/behaviors/gameplay/DeathBehavior.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/Engine.as" afterPath="$PROJECT_DIR$/src/sqballs/Engine.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/behaviors/gamepad/GamepadBehavior.as" afterPath="$PROJECT_DIR$/src/sqballs/behaviors/gamepad/GamepadBehavior.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/SQBalls.as" afterPath="$PROJECT_DIR$/src/sqballs/SQBalls.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/utils/nape/PhysEngineConnector.as" afterPath="$PROJECT_DIR$/src/core/utils/nape/PhysEngineConnector.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/controller/SQFieldController.as" afterPath="$PROJECT_DIR$/src/sqballs/controller/SQFieldController.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/SceneController.as" afterPath="$PROJECT_DIR$/src/sqballs/SceneController.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/behaviors/control/user/UserControlBehavior.as" afterPath="$PROJECT_DIR$/src/sqballs/behaviors/control/user/UserControlBehavior.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SQBalls.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/fragment.js2" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364212643626" ignored="false" />
     <file path="/SQBalls.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364268643617" ignored="false" />
-    <file path="/Dummy.txt" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364274030671" ignored="false" />
+    <file path="/Dummy.txt" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364274112340" ignored="false" />
     <file path="/RObjectBase.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364205963354" ignored="false" />
     <file path="/StarlingAssetsLib.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364214456255" ignored="false" />
     <file path="/ObjectBase.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364213958640" ignored="false" />
@@ -40,7 +29,7 @@
     <file path="/GamepadBehavior.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364273148028" ignored="false" />
     <file path="/UserControlBehavior.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364273333237" ignored="false" />
     <file path="/ControlBehavior.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364273025830" ignored="false" />
-    <file path="/BallMoveBehavior.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364273397221" ignored="false" />
+    <file path="/BallMoveBehavior.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364275582544" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,16 +112,16 @@
       <file leaf-file-name="SceneController.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sqballs/SceneController.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="38" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
+            <state line="92" column="35" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQFieldController.as" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SQFieldController.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sqballs/controller/SQFieldController.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="102" selection-start="2975" selection-end="2975" vertical-scroll-proportion="0.5097451">
+            <state line="100" column="26" selection-start="2904" selection-end="2904" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,7 +130,7 @@
       <file leaf-file-name="UserControlBehavior.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sqballs/behaviors/control/user/UserControlBehavior.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="49" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
+            <state line="39" column="56" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#195#233#0" expanded="true" />
@@ -150,10 +139,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BallMoveBehavior.as" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BallMoveBehavior.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BallMoveBehavior.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="58" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
+            <state line="61" column="21" selection-start="1630" selection-end="1630" vertical-scroll-proportion="0.8484849">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#191#226#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhysEngineConnector.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/utils/nape/PhysEngineConnector.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="79" selection-start="1212" selection-end="1212" vertical-scroll-proportion="-5.92">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -201,7 +202,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/sqballs/model/SQObjectBase.as" />
         <option value="$PROJECT_DIR$/src/core/utils/FPSCounter.as" />
-        <option value="$PROJECT_DIR$/src/core/utils/nape/PhysEngineConnector.as" />
         <option value="$PROJECT_DIR$/src/sqballs/utils/StarlingAssetsLib.as" />
         <option value="$PROJECT_DIR$/src/core/controller/FieldController.as" />
         <option value="$PROJECT_DIR$/src/sqballs/utils/Config.as" />
@@ -212,17 +212,18 @@
         <option value="$PROJECT_DIR$/src/sqballs/SceneController.as" />
         <option value="$PROJECT_DIR$/src/sqballs/behaviors/control/ControlBehavior.as" />
         <option value="$PROJECT_DIR$/src/sqballs/behaviors/control/user/UserControlBehavior.as" />
-        <option value="$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BallMoveBehavior.as" />
         <option value="$PROJECT_DIR$/src/sqballs/behaviors/gamepad/GamepadBehavior.as" />
+        <option value="$PROJECT_DIR$/src/core/utils/nape/PhysEngineConnector.as" />
         <option value="$PROJECT_DIR$/src/sqballs/controller/SQFieldController.as" />
+        <option value="$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BallMoveBehavior.as" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-4" />
-    <option name="width" value="1928" />
-    <option name="height" value="1060" />
+    <option name="x" value="229" />
+    <option name="y" value="29" />
+    <option name="width" value="1540" />
+    <option name="height" value="942" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -619,11 +620,15 @@
       <created>1364217270440</created>
       <updated>1364217270440</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="gamepad and user controller adapt for touch">
+      <created>1364274123271</created>
+      <updated>1364274123271</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1060" extended-state="6" />
+    <frame x="229" y="29" width="1540" height="942" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -631,15 +636,15 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24179432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2776382" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914573" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20010673" sideWeight="0.7582057" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2523553" sideWeight="0.7223618" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -685,7 +690,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="balls + field, gravity active" />
+    <option name="LAST_COMMIT_MESSAGE" value="gamepad and user controller adapt for touch" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -701,6 +706,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="dirty core implementation" />
     <MESSAGE value="balls + field, gravity active" />
+    <MESSAGE value="gamepad and user controller adapt for touch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -712,15 +718,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sqballs/utils/StarlingAssetsLib.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="83" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#179#217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/nape-dev.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="19" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.33257142">
@@ -807,25 +804,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqballs/SceneController.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="38" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BallMoveBehavior.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="58" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sqballs/behaviors/control/user/UserControlBehavior.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="49" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
+        <state line="39" column="56" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#195#233#0" expanded="true" />
@@ -833,10 +814,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqballs/SceneController.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="35" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sqballs/controller/SQFieldController.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="102" selection-start="2975" selection-end="2975" vertical-scroll-proportion="0.5097451">
+        <state line="100" column="26" selection-start="2904" selection-end="2904" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/utils/nape/PhysEngineConnector.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="79" selection-start="1212" selection-end="1212" vertical-scroll-proportion="-5.92">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BallMoveBehavior.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="21" selection-start="1630" selection-end="1630" vertical-scroll-proportion="0.8484849">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#191#226#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
