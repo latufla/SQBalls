@@ -17,7 +17,6 @@ import flash.utils.setTimeout;
 
 import nape.util.BitmapDebug;
 
-import sqballs.behaviors.CameraBehavior;
 import sqballs.controller.SQFieldController;
 
 import sqballs.event.GameEvent;
@@ -42,7 +41,7 @@ public class SceneController extends EventDispatcher{
 
     private function init():void {
         _view = new MovieClip();
-        SQBalls.STAGE.addChild(_view);
+        Config.stage.addChild(_view);
 
         addEventListeners();
 
@@ -87,11 +86,11 @@ public class SceneController extends EventDispatcher{
 
         var f:Field = RaceInfoLib.getRaceInfoByLevel(1);
         _field = new SQFieldController(f);
-        _field.addBehavior(new CameraBehavior());
-        _field.startBehaviors();
+//        _field.addBehavior(new CameraBehavior());
+        _field.draw();
 
         if(Config.DEBUG){
-            _fieldDebugView = new BitmapDebug(1850, 1870, SQBalls.STAGE.color);
+            _fieldDebugView = new BitmapDebug(1850, 1870, Config.stage.color);
             _view.addChild(_fieldDebugView.display);
             _view.alpha = 0.5;
         }

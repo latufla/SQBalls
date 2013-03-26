@@ -33,17 +33,19 @@ public class BallMoveBehavior extends BehaviorBase{
         if(!controlBehavior)
             return;
 
-        var obj:ObjectBase = _controller.object;
-        if(controlBehavior.run)
-            applyRun(obj, step);
-        else
-            applyStoppage(obj);
+        trace(controlBehavior.moveTo, controlBehavior.forceK);
 
-        if(controlBehavior.turnRight)
-            applyTurnRight(obj, step, controlBehavior.run);
-
-        if(controlBehavior.turnLeft)
-            applyTurnLeft(obj, step, controlBehavior.run);
+//        var obj:ObjectBase = _controller.object;
+//        if(controlBehavior.run)
+//            applyRun(obj, step);
+//        else
+//            applyStoppage(obj);
+//
+//        if(controlBehavior.turnRight)
+//            applyTurnRight(obj, step, controlBehavior.run);
+//
+//        if(controlBehavior.turnLeft)
+//            applyTurnLeft(obj, step, controlBehavior.run);
     }
 
     private function applyRun(obj:ObjectBase, step:Number):void{

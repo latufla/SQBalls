@@ -40,14 +40,14 @@ public class CameraBehavior extends BehaviorBase{
 //        var pos:Point = playerRatC.object.position;
 //        var debugView:DisplayObject = Config.sceneController.view;
 //        if(debugView){
-//            debugView.x = SQBalls.STAGE.stageWidth / 2 - pos.x;
-//            debugView.y = SQBalls.STAGE.stageHeight / 2 - pos.y;
+//            debugView.x = Config.stage.stageWidth / 2 - pos.x;
+//            debugView.y = Config.stage.stageHeight / 2 - pos.y;
 //        }
 //
 //        var releaseView:ViewBase = Config.fieldController.view;
 //        if(releaseView){
-//            releaseView.x = SQBalls.STAGE.stageWidth / 2 - pos.x;
-//            releaseView.y = SQBalls.STAGE.stageHeight / 2 - pos.y;
+//            releaseView.x = Config.stage.stageWidth / 2 - pos.x;
+//            releaseView.y = Config.stage.stageHeight / 2 - pos.y;
 //        }
     }
 

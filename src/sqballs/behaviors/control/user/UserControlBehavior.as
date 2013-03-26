@@ -8,6 +8,8 @@
 package sqballs.behaviors.control.user {
 import core.controller.ControllerBase;
 
+import flash.geom.Point;
+
 import sqballs.behaviors.control.ControlBehavior;
 import sqballs.behaviors.gamepad.GamepadBehavior;
 
@@ -33,16 +35,19 @@ public class UserControlBehavior extends ControlBehavior{
         _gamepad.stop();
     }
 
-    override public function get turnLeft():Boolean{
-        return _gamepad.leftKeyPressed;
+    override public function get moveTo():Point{
+        if(!_gamepad.touched)
+            return null;
+
+        var pos:Point = new Point(_gamepad.touchInfo.x, _gamepad.touchInfo.y);
+        return pos;
     }
 
-    override public function get turnRight():Boolean{
-        return _gamepad.rightKeyPressed;
-    }
+    override public function get forceK():int{
+        if(!_gamepad.touched)
+            return 0;
 
-    override public function get run():Boolean{
-        return _gamepad.runKeyPressed;
+        return _gamepad.touchInfo.touchForce;
     }
 }
 }

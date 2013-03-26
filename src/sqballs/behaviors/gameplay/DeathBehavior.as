@@ -38,7 +38,7 @@ public class DeathBehavior extends BehaviorBase{
     // TODO: think about standart clone
     private function applyDeath(obj:SQObjectBase):void {
 //        var pos:Point = obj.position;
-//        GuiUtil.showStaticText(SQBalls.STAGE, new Point(pos.x, pos.y), "BAAAAANG!!!", 30, 0xFF0000);
+//        GuiUtil.showStaticText(Config.stage, new Point(pos.x, pos.y), "BAAAAANG!!!", 30, 0xFF0000);
 //
 //        var recoveryObj:SQObjectBase = SQObjectBase.create(obj.libDesc, obj.position, obj.shapes, obj.material, obj.interactionGroup);
 //        recoveryObj.name = obj.name;

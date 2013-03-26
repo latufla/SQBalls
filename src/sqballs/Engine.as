@@ -24,7 +24,7 @@ public class Engine extends Sprite{
         Config.mainScene = this;
 
         _scene = new SceneController();
-        SQBalls.STAGE.addChild(new FPSCounter(5, 5));
+        Config.stage.addChild(new FPSCounter(5, 5));
     }
 }
 }

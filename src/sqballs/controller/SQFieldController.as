@@ -98,12 +98,11 @@ public class SQFieldController extends FieldController{
             user = f.racers[i];
             ball.name = user.name;
 
-//            if(user is BotInfo)
-//                bhs = new <BehaviorBase>[new AIControlBehavior(), new RatMoveBehavior(), new TrapBehavior(), new BoostBehavior(), new ShootBehavior(), new DeathBehavior()];
-//            else
-//                bhs = new <BehaviorBase>[new UserControlBehavior(), new RatMoveBehavior(), new TrapBehavior(), new BoostBehavior(), new ShootBehavior(), new DeathBehavior(), new StatDisplayBehavior()];
+            if(user is BotInfo)
+                bhs = new <BehaviorBase>[new BallMoveBehavior()];
+            else
+                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior()];
 
-            bhs = new <BehaviorBase>[new BallMoveBehavior()];
             add(SQControllerBase.create(ball, bhs));
         }
     }

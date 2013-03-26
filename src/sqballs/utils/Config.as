@@ -6,6 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.utils {
+import flash.display.Stage;
+
 import sqballs.Engine;
 import sqballs.controller.SQFieldController;
 import sqballs.SceneController;
@@ -16,7 +18,9 @@ public class Config {
     public static const fps:uint = 60;
     public static const DEBUG:Boolean = false;
 
+    public static var stage:Stage;
     public static var mainScene:Engine;
+
 
     public static var fieldController:SQFieldController;
     public static var sceneController:SceneController;
@@ -31,10 +35,6 @@ public class Config {
 
     public static function get racesCountPlanet1():uint{
         return 8;
-    }
-
-    public static function get maxPointsCountPlanet1():uint{
-        return racesCountPlanet1 * 1000;
     }
 
     public static function get maxBotsCount():uint{

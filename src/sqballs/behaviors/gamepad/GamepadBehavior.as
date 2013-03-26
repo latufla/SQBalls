@@ -9,87 +9,67 @@ package sqballs.behaviors.gamepad {
 import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
 
-import flash.display.Stage;
-import flash.events.KeyboardEvent;
+import flash.geom.Point;
 
-import sqballs.SQBalls;
+import sqballs.utils.Config;
+
+import starling.events.Touch;
+
+import starling.events.TouchEvent;
+import starling.events.TouchPhase;
 
 public class GamepadBehavior extends BehaviorBase{
     // default keys
-    private static const LEFT_KEY:uint = 37;
-    private static const RIGHT_KEY:uint = 39;
-    private static const RUN_KEY:uint = 16;
-    private static const TRAP_KEY:uint = 67;
-    private static const BOOST_KEY:uint = 88;
-    private static const SHOOT_KEY:uint = 90;
+    private static const TOUCH:String = "touch";
 
-    private var _keysLib:Array;
+
+    private var _touchForce:int;
     private var _activeKeys:Array;
 
     public function GamepadBehavior() {
+        super();
         init();
     }
 
     private function init():void {
-        _keysLib = [LEFT_KEY, RIGHT_KEY, RUN_KEY, TRAP_KEY];
         _activeKeys = [];
+        _activeKeys[TOUCH] = [false];
     }
 
     override public function start(c:ControllerBase):void{
         super.start(c);
 
-        var stage:Stage = SQBalls.STAGE;
-        stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-        stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+        Config.mainScene.addEventListener(TouchEvent.TOUCH, onTouch);
+    }
+
+    private function onTouch(e:TouchEvent):void {
+        var touch:Touch = e.getTouch(Config.mainScene);
+
+        if(touch.phase == TouchPhase.BEGAN || touch.phase == TouchPhase.MOVED){
+            _activeKeys[TOUCH] = [true, {x: touch.globalX, y: touch.globalY, touchForce: ++_touchForce}];
+        }
+        else if(touch.phase == TouchPhase.ENDED){
+            _activeKeys[TOUCH] = [false];
+            _touchForce = 0;
+        }
     }
 
     override public function stop():void{
         super.stop();
-        _activeKeys = [];
 
-        var stage:Stage = SQBalls.STAGE;
-        stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-        stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+        _activeKeys[TOUCH] = [false];
+        Config.mainScene.removeEventListener(TouchEvent.TOUCH, onTouch);
     }
 
-    private function onKeyDown(e:KeyboardEvent):void {
-        var key:uint = e.keyCode;
-        if(_keysLib[key] == -1)
-            return;
-
-        _activeKeys[key] = true;
+    public function get touched():Boolean{
+        return _activeKeys[TOUCH] && _activeKeys[TOUCH][0];
     }
 
-    private function onKeyUp(e:KeyboardEvent):void {
-        var key:uint = e.keyCode;
-        if(_keysLib[key] == -1)
-            return;
+    public function get touchInfo():Object{
+        if(touched)
+            return _activeKeys[TOUCH][1];
 
-        _activeKeys[key] = false;
-    }
-
-    public function get leftKeyPressed():Boolean{
-        return _activeKeys[LEFT_KEY];
-    }
-
-    public function get rightKeyPressed():Boolean{
-        return _activeKeys[RIGHT_KEY];
-    }
-
-    public function get runKeyPressed():Boolean{
-        return _activeKeys[RUN_KEY];
-    }
-
-    public function get trapKeyPressed():Boolean{
-        return _activeKeys[TRAP_KEY];
-    }
-
-    public function get boostKeyPressed():Boolean{
-        return _activeKeys[BOOST_KEY];
-    }
-
-    public function get shootKeyPressed():Boolean{
-        return _activeKeys[SHOOT_KEY];
+        return null;
     }
 }
 }
