@@ -6,22 +6,13 @@
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.view {
-import core.utils.EventHeap;
-
-import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.display.MovieClip;
 import flash.display.Sprite;
 import flash.text.TextField;
-import flash.text.TextFieldAutoSize;
-import flash.utils.clearTimeout;
-import flash.utils.setTimeout;
 
-import sqballs.event.GameEvent;
 import sqballs.model.Field;
 import sqballs.model.info.UserInfo;
-import sqballs.utils.AssetsLib;
-import sqballs.utils.Config;
 
 public class RaceResultView extends Sprite{
 

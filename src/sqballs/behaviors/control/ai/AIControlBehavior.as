@@ -6,10 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.behaviors.control.ai {
-import core.utils.MathUtil;
-
-import flash.geom.Point;
-
 import sqballs.behaviors.control.ControlBehavior;
 
 public class AIControlBehavior extends ControlBehavior{
@@ -51,17 +47,17 @@ public class AIControlBehavior extends ControlBehavior{
 //        }
     }
 
-    override public function get turnLeft():Boolean{
-        return _turnLeft;
-    }
-
-    override public function get turnRight():Boolean{
-        return _turnRight;
-    }
-
-    override public function get run():Boolean{
-        return _run;
-    }
+//    override public function get turnLeft():Boolean{
+//        return _turnLeft;
+//    }
+//
+//    override public function get turnRight():Boolean{
+//        return _turnRight;
+//    }
+//
+//    override public function get run():Boolean{
+//        return _run;
+//    }
 
 }
 }

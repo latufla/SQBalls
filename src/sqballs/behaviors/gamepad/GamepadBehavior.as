@@ -13,7 +13,6 @@ import flash.events.MouseEvent;
 
 import sqballs.utils.Config;
 
-
 public class GamepadBehavior extends BehaviorBase{
     // default keys
     private static const TAP:String = "tap";

@@ -11,10 +11,8 @@ import core.controller.ControllerBase;
 import core.model.ObjectBase;
 
 import sqballs.controller.BallController;
-
 import sqballs.controller.SQFieldController;
 import sqballs.model.Ball;
-
 import sqballs.model.SQObjectBase;
 import sqballs.utils.Config;
 

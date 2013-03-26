@@ -7,14 +7,8 @@
  */
 package sqballs.behaviors.gameplay {
 import core.behaviors.BehaviorBase;
-import flash.geom.Point;
-import flash.utils.clearTimeout;
-import flash.utils.setTimeout;
 
-import sqballs.SQBalls;
-import sqballs.controller.BallController;
 import sqballs.model.SQObjectBase;
-import sqballs.utils.Config;
 
 public class DeathBehavior extends BehaviorBase{
 

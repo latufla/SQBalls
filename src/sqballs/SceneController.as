@@ -10,7 +10,6 @@ import core.utils.DisplayObjectUtil;
 import core.utils.EventHeap;
 
 import flash.display.MovieClip;
-
 import flash.events.EventDispatcher;
 import flash.utils.Dictionary;
 import flash.utils.setTimeout;
@@ -18,13 +17,13 @@ import flash.utils.setTimeout;
 import nape.util.BitmapDebug;
 
 import sqballs.controller.SQFieldController;
-
 import sqballs.event.GameEvent;
 import sqballs.model.Field;
 import sqballs.model.info.GameInfo;
 import sqballs.model.info.UserInfo;
 import sqballs.utils.Config;
 import sqballs.utils.RaceInfoLib;
+
 import starling.events.EnterFrameEvent;
 
 public class SceneController extends EventDispatcher{

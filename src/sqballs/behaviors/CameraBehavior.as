@@ -8,14 +8,8 @@
 package sqballs.behaviors {
 import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
-import core.view.ViewBase;
 
-import flash.display.DisplayObject;
-import flash.geom.Point;
-
-import sqballs.SQBalls;
 import sqballs.controller.SQFieldController;
-import sqballs.utils.Config;
 
 public class CameraBehavior extends BehaviorBase{
     public function CameraBehavior() {

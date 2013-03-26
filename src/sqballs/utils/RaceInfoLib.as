@@ -9,8 +9,6 @@ package sqballs.utils {
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
-import flash.geom.Point;
-import flash.geom.Rectangle;
 
 import sqballs.model.Field;
 

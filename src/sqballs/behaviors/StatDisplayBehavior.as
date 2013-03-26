@@ -8,9 +8,6 @@
 package sqballs.behaviors {
 import core.behaviors.BehaviorBase;
 
-import sqballs.model.SQObjectBase;
-import sqballs.utils.Config;
-
 public class StatDisplayBehavior extends BehaviorBase{
     public function StatDisplayBehavior() {
     }

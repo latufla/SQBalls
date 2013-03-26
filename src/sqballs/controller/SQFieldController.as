@@ -10,23 +10,15 @@ package sqballs.controller {
 import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
 import core.controller.FieldController;
-import core.utils.nape.CustomCircle;
 import core.utils.nape.CustomMaterial;
-import core.utils.nape.CustomPolygon;
-import core.utils.nape.CustomShape;
 
 import flash.geom.Point;
 
-import sqballs.behaviors.StatDisplayBehavior;
-import sqballs.behaviors.control.ai.AIControlBehavior;
 import sqballs.behaviors.control.user.UserControlBehavior;
 import sqballs.behaviors.gameplay.BallAbsorbBehavior;
-import sqballs.behaviors.gameplay.DeathBehavior;
 import sqballs.behaviors.gameplay.BallMoveBehavior;
 import sqballs.model.Ball;
-
 import sqballs.model.Field;
-import sqballs.model.SQObjectBase;
 import sqballs.model.info.BotInfo;
 import sqballs.model.info.UserInfo;
 import sqballs.utils.Config;

@@ -12,7 +12,6 @@ import core.utils.nape.CustomShape;
 import core.utils.nape.PhysEngineConnector;
 
 import flash.geom.Point;
-
 import flash.geom.Rectangle;
 
 public class Ball extends SQObjectBase{

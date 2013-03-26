@@ -8,7 +8,6 @@
 package core.utils.nape {
 
 import nape.geom.Vec2;
-
 import nape.shape.Circle;
 import nape.shape.Shape;
 

@@ -9,8 +9,8 @@ package sqballs.utils {
 import flash.display.Stage;
 
 import sqballs.Engine;
-import sqballs.controller.SQFieldController;
 import sqballs.SceneController;
+import sqballs.controller.SQFieldController;
 import sqballs.model.info.GameInfo;
 
 public class Config {
