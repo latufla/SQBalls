@@ -9,21 +9,19 @@ package sqballs.behaviors.gamepad {
 import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
 
-import flash.geom.Point;
+import flash.events.MouseEvent;
 
 import sqballs.utils.Config;
 
-import starling.events.Touch;
-
-import starling.events.TouchEvent;
-import starling.events.TouchPhase;
 
 public class GamepadBehavior extends BehaviorBase{
     // default keys
-    private static const TOUCH:String = "touch";
+    private static const TAP:String = "tap";
 
+    private static const IDLE:String = "idle";
 
-    private var _touchForce:int;
+    private var _touchLength:int;
+    private var _shouldSetIdle:Boolean;
     private var _activeKeys:Array;
 
     public function GamepadBehavior() {
@@ -33,41 +31,55 @@ public class GamepadBehavior extends BehaviorBase{
 
     private function init():void {
         _activeKeys = [];
-        _activeKeys[TOUCH] = [false];
+        _activeKeys[TAP] = [IDLE];
     }
 
     override public function start(c:ControllerBase):void{
         super.start(c);
 
-        Config.mainScene.addEventListener(TouchEvent.TOUCH, onTouch);
+        Config.stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+        Config.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
     }
 
-    private function onTouch(e:TouchEvent):void {
-        var touch:Touch = e.getTouch(Config.mainScene);
+    private function onMouseUp(e:MouseEvent):void {
+        _activeKeys[TAP] = [MouseEvent.MOUSE_UP, {x: e.stageX, y: e.stageY, touchLength: _touchLength}];
+        _touchLength = 0;
+    }
 
-        if(touch.phase == TouchPhase.BEGAN || touch.phase == TouchPhase.MOVED){
-            _activeKeys[TOUCH] = [true, {x: touch.globalX, y: touch.globalY, touchForce: ++_touchForce}];
-        }
-        else if(touch.phase == TouchPhase.ENDED){
-            _activeKeys[TOUCH] = [false];
-            _touchForce = 0;
-        }
+    private function onMouseDown(e:MouseEvent):void {
+        _activeKeys[TAP] = [MouseEvent.MOUSE_DOWN, {x: e.stageX, y: e.stageY, touchForce: 0}];
+    }
+
+    override public function doStep(step:Number):void{
+        if(!_enabled)
+            return;
+
+        super.doStep(step);
+
+        if(_activeKeys[TAP][0] == MouseEvent.MOUSE_DOWN)
+            _touchLength++;
+
+        if(_shouldSetIdle)
+            _activeKeys[TAP] = [IDLE];
+
+        _shouldSetIdle = _activeKeys[TAP][0] == MouseEvent.MOUSE_UP;
     }
 
     override public function stop():void{
         super.stop();
 
-        _activeKeys[TOUCH] = [false];
-        Config.mainScene.removeEventListener(TouchEvent.TOUCH, onTouch);
+        _activeKeys[TAP] = [IDLE];
+        Config.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+        Config.stage.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
     }
 
     public function get touched():Boolean{
-        return _activeKeys[TOUCH] && _activeKeys[TOUCH][0];
+        return _activeKeys[TAP] && _activeKeys[TAP][0] == MouseEvent.MOUSE_UP;
     }
 
     public function get touchInfo():Object{
         if(touched)
-            return _activeKeys[TOUCH][1];
+            return _activeKeys[TAP][1];
 
         return null;
     }

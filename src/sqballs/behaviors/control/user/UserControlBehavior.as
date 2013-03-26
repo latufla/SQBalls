@@ -30,24 +30,33 @@ public class UserControlBehavior extends ControlBehavior{
         _gamepad.start(c);
     }
 
+    override public function doStep(step:Number):void{
+        if(!_enabled)
+            return;
+
+        super.doStep(step);
+        _gamepad.doStep(step);
+    }
+
     override public function stop():void{
         super.stop();
         _gamepad.stop();
     }
 
-    override public function get moveTo():Point{
+    override public function get moveFrom():Point{
         if(!_gamepad.touched)
             return null;
 
-        var pos:Point = new Point(_gamepad.touchInfo.x, _gamepad.touchInfo.y);
+        var info:Object = _gamepad.touchInfo;
+        var pos:Point = new Point(info.x, info.y);
         return pos;
     }
 
-    override public function get forceK():int{
+    override public function get magnitude():int{
         if(!_gamepad.touched)
             return 0;
 
-        return _gamepad.touchInfo.touchForce;
+        return _gamepad.touchInfo.touchLength;
     }
 }
 }

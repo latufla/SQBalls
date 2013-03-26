@@ -14,11 +14,11 @@ public class ControlBehavior extends BehaviorBase {
     public function ControlBehavior() {
     }
 
-    public function get moveTo():Point{
+    public function get moveFrom():Point{
         return null;
     }
 
-    public function get forceK():int{
+    public function get magnitude():int{
         return 0;
     }
 }

@@ -93,6 +93,10 @@ public class ObjectBase {
         PhysEngineConnector.instance.setVelocity(this, value);
     }
 
+    public function get mass():Number {
+        return PhysEngineConnector.instance.getMass(this);
+    }
+
     public function get shapes():Vector.<CustomShape> {
         return _shapes;
     }

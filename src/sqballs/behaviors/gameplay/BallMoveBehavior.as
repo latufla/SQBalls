@@ -12,12 +12,13 @@ import core.model.ObjectBase;
 import flash.geom.Point;
 
 import sqballs.behaviors.control.ControlBehavior;
+import sqballs.model.SQObjectBase;
 
-// note this is a rat
 public class BallMoveBehavior extends BehaviorBase{
 
-    public static const STOPPAGE_MIN_VEL:int = 50;
-    public static const IDLE_ROTATION:Number = Math.PI / 30;
+    public static const MAX_MAGNITUDE:int = 50;
+    public static const MAGNITUDE_K:int = 10;
+    public static const STOPPAGE_MIN_VELOCITY:int = 10;
 
     public function BallMoveBehavior() {
         super();
@@ -33,62 +34,36 @@ public class BallMoveBehavior extends BehaviorBase{
         if(!controlBehavior)
             return;
 
-//        trace(_controller.object.name, controlBehavior.moveTo, controlBehavior.forceK);
+        var obj:SQObjectBase = _controller.object as SQObjectBase;
+        if(!obj)
+            return;
 
-        var obj:ObjectBase = _controller.object;
-
-        var nextPos:Point = controlBehavior.moveTo;
-        if(nextPos)
-            applyRun(obj, nextPos);
-
-
-//        else
-//            applyStoppage(obj);
-//
-//        if(controlBehavior.turnRight)
-//            applyTurnRight(obj, step, controlBehavior.run);
-//
-//        if(controlBehavior.turnLeft)
-//            applyTurnLeft(obj, step, controlBehavior.run);
+        var moveFrom:Point = controlBehavior.moveFrom;
+        if(moveFrom)
+            applyRun(obj, moveFrom, controlBehavior.magnitude);
+        else
+            applyStoppage(obj);
     }
 
-    private function applyRun(obj:ObjectBase, nextPos:Point):void{
+    private function applyRun(obj:SQObjectBase, moveFrom:Point, magnitude:int):void{
         var pos:Point = obj.position;
-        pos = pos.subtract(nextPos);
+        pos = pos.subtract(moveFrom);
         pos.normalize(1);
-        pos.x *= 30;
-        pos.y *= 30;
+
+        if(magnitude > MAX_MAGNITUDE)
+            magnitude = MAX_MAGNITUDE;
+
+        pos.x *= magnitude * obj.mass * MAGNITUDE_K;
+        pos.y *= magnitude * obj.mass * MAGNITUDE_K;
+
         obj.applyImpulse(pos);
-
-//        trace("applyRun", pos);
-
-//        obj.applyImpulse(new Point(0, -590 * step));
     }
+
 
     private function applyStoppage(obj:ObjectBase):void {
-        var velM:int = obj.velocity.length; // whatever is small
-        if(velM > 0 && !velocitySufficient(obj))
+        var vel:int = obj.velocity.length; // whatever is small
+        if(vel > 0 && vel <= STOPPAGE_MIN_VELOCITY)
             obj.velocity = new Point();
-    }
-
-    private function applyTurnLeft(obj:ObjectBase, step:Number, run:Boolean):void{
-        if(run || velocitySufficient(obj)){
-            obj.applyAngularImpulse(-9000 * step);
-        } else {
-            obj.rotation -= IDLE_ROTATION; // TODO: make correction when Math.PI/2 close
-        }
-    }
-
-    private function applyTurnRight(obj:ObjectBase, step:Number, run:Boolean):void{
-        if(run || velocitySufficient(obj)){
-            obj.applyAngularImpulse(9000 * step);
-        } else {
-            obj.rotation += IDLE_ROTATION;
-        }
-    }
-
-    private function velocitySufficient(obj:ObjectBase):Boolean{
-        return obj.velocity.length >= STOPPAGE_MIN_VEL;
     }
 }
 }

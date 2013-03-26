@@ -130,6 +130,11 @@ public class PhysEngineConnector {
         physObj.rotation = value;
     }
 
+    public function getMass(obj:ObjectBase):Number{
+        var physObj:Body = _physObjects[obj];
+        return physObj.mass;
+    }
+
     public function setShapes(obj:ObjectBase, shapes:Vector.<CustomShape>):void{
         var physObj:Body = _physObjects[obj];
         physObj.shapes.clear();
