@@ -23,6 +23,7 @@ import nape.callbacks.InteractionType;
 import nape.geom.Vec2;
 import nape.phys.Body;
 import nape.phys.BodyType;
+import nape.shape.Shape;
 import nape.space.Space;
 import nape.util.BitmapDebug;
 
@@ -65,6 +66,11 @@ public class PhysEngineConnector {
 
     public function initObject(obj:ObjectBase):void{
         _physObjects[obj] ||= new Body(BodyType.DYNAMIC);
+    }
+
+    public function getCircleShape(obj:ObjectBase):Shape{
+        var physObj:Body = _physObjects[obj];
+        return physObj.shapes[0];
     }
 
     public function addObjectToField(f:FieldController, o:ObjectBase):void {

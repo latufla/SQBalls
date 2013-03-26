@@ -10,8 +10,11 @@ import core.controller.ControllerBase;
 import core.model.ObjectBase;
 import core.utils.nape.CustomMaterial;
 import core.utils.nape.CustomShape;
+import core.utils.nape.PhysEngineConnector;
 
 import flash.geom.Point;
+
+import nape.shape.Shape;
 
 import sqballs.utils.Config;
 import sqballs.utils.StarlingAssetsLib;
@@ -23,6 +26,10 @@ public class SQObjectBase extends ObjectBase {
 
     public function SQObjectBase() {
         super();
+    }
+
+    public function resizeShape(w:uint, h:uint):void{
+        var shape:Shape = PhysEngineConnector.instance.getCircleShape(this);
     }
 
     public static function create(libDesc:String, pos:Point, shapes:Vector.<CustomShape>, material:CustomMaterial, interactionGroup:int):SQObjectBase{
