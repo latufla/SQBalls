@@ -41,15 +41,6 @@ public class SQFieldController extends FieldController{
         createBalls(field);
     }
 
-    override public function draw():void{
-        super.draw();
-
-        for each(var p:ControllerBase in getControllersByClass(BallController)){
-            p.draw();
-            _view.addChild(p.view);
-        }
-    }
-
     override public function doStep(step:Number, debugView:* = null):void{
         super.doStep(step, debugView);
 

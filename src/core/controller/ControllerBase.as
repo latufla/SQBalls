@@ -8,6 +8,7 @@
 package core.controller {
 import core.behaviors.BehaviorBase;
 import core.model.ObjectBase;
+import core.utils.DisplayObjectUtil;
 import core.utils.VectorUtil;
 import core.view.ViewBase;
 
@@ -34,21 +35,6 @@ public class ControllerBase {
         }
 
         return c;
-    }
-
-
-    public function draw():void{
-        if(!_object)
-            return;
-
-        _view ||= new ViewBase();
-        _view.content ||= _object.createAsset();
-
-        align();
-    }
-
-    protected function align():void{
-
     }
 
     public function addBehavior(b:BehaviorBase):void{
@@ -96,6 +82,41 @@ public class ControllerBase {
     // not class but concrete behavior
     public function hasBehavior(b:BehaviorBase):Boolean{
         return _behaviors.indexOf(b) != -1;
+    }
+
+
+    public function draw():void{
+        if(!_object)
+            return;
+
+        _view ||= new ViewBase();
+
+        if(!_view.asset){
+            _view.asset = _object.createAsset();
+            _view.draw();
+            trace("draw asset");
+        }
+
+        if(shouldRedrawContent)
+            redrawContent();
+
+        align();
+    }
+
+    protected function get shouldRedrawContent():Boolean{
+        return false;
+    }
+
+    protected function redrawContent():void {
+
+    }
+
+    protected function align():void{
+
+    }
+
+    public function clear():void{
+        DisplayObjectUtil.removeAll(_view);
     }
 
     public function get view():ViewBase {

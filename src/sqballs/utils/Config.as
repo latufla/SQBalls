@@ -21,7 +21,6 @@ public class Config {
     public static var stage:Stage;
     public static var mainScene:Engine;
 
-
     public static var fieldController:SQFieldController;
     public static var sceneController:SceneController;
     public static var gameInfo:GameInfo;

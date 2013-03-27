@@ -8,6 +8,7 @@
 package core.controller {
 import core.behaviors.BehaviorBase;
 import core.model.ObjectBase;
+import core.utils.DisplayObjectUtil;
 import core.utils.VectorUtil;
 import core.utils.nape.PhysEngineConnector;
 
@@ -25,6 +26,18 @@ public class FieldController extends ControllerBase{
         PhysEngineConnector.instance.initField(this);
     }
 
+    override public function draw():void{
+        super.draw();
+
+        for each(var p:ControllerBase in _controllers){
+            if(p == this)
+                continue;
+
+            p.draw();
+            _view.addChild(p.view);
+        }
+    }
+
     public function add(c:ControllerBase):void{
         PhysEngineConnector.instance.addObjectToField(this, c.object);
         _controllers.push(c);
@@ -33,17 +46,17 @@ public class FieldController extends ControllerBase{
 
     public function remove(c:ControllerBase):void{
         c.stopBehaviors();
+
         PhysEngineConnector.instance.destroyObject(c.object);
         VectorUtil.removeElement(_controllers, c);
-    }
-
-    public function clear():void{
-        while(_controllers.length != 0){
-            remove(_controllers[0]);
-        }
+        DisplayObjectUtil.tryRemove(c.view);
     }
 
     public function destroy():void{
+        while(_controllers.length != 0){
+            remove(_controllers[0]);
+        }
+
         clear();
         PhysEngineConnector.instance.destroyField(this);
     }

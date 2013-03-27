@@ -44,7 +44,6 @@ public class BallAbsorbBehavior extends BehaviorBase{
         super.stop();
     }
 
-
     override protected function onBeginInteraction(obj1:ObjectBase, obj2:ObjectBase):void{
         var b1:Ball = obj1 as Ball;
         var b2:Ball = obj2 as Ball;

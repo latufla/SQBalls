@@ -1,20 +1,32 @@
 /**
  * Created with IntelliJ IDEA.
  * User: Latufla
- * Date: 24.03.13
- * Time: 18:59
+ * Date: 27.03.13
+ * Time: 8:47
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.controller {
 import core.behaviors.BehaviorBase;
-import core.controller.ControllerBase;
 import core.model.ObjectBase;
+import core.utils.DisplayObjectUtil;
+import core.utils.PixelMaskDisplayObject;
+
+import flash.display.Bitmap;
+
+import flash.display.BitmapData;
 
 import flash.geom.Point;
 
 import sqballs.model.Ball;
 
-public class BallController extends ControllerBase{
+import starling.display.Image;
+import starling.display.Sprite;
+import starling.display.DisplayObject;
+
+public class BallController extends SQControllerBase{
+
+    private var _initialContentView:DisplayObject;
+    private var _prevColor:uint;
 
     public function BallController() {
         super();
@@ -30,19 +42,39 @@ public class BallController extends ControllerBase{
         return c;
     }
 
-    override protected function align():void {
-        var obj:Ball = _object as Ball;
-        _view.pivotX = obj.pivotX;
-        _view.pivotY = obj.pivotY;
+    override protected function redrawContent():void{
+        _initialContentView ||= _view.asset as DisplayObject;
+        clear();
 
-        _view.width = obj.rectSize.width;
-        _view.height = obj.rectSize.height;
+        var b:Ball = _object as Ball;
+        var bd:BitmapData = DisplayObjectUtil.createCircle(new Point(50, 50), 50, b.color);
+        var ballImage:Image = Image.fromBitmap(new Bitmap(bd, "auto", true));
 
-        var pos:Point = _object.position;
-        _view.x = pos.x;
-        _view.y = pos.y;
+        var ballView:Sprite = new Sprite();
+        ballView.addChild(ballImage);
 
-        _view.rotation = _object.rotation;
+        var pMask:PixelMaskDisplayObject = new PixelMaskDisplayObject();
+        pMask.addChild(ballView);
+        pMask.mask = _view.asset;
+        _view.addChild(pMask);
+
+        _prevColor = b.color;
+    }
+
+    override protected function align():void{
+        super.align();
+
+        var b:Ball = _object as Ball;
+        _view.width = b.rectSize.width;
+        _view.height = b.rectSize.height;
+    }
+
+    override protected function get shouldRedrawContent():Boolean{
+        var b:Ball = _object as Ball;
+        if(b)
+            return _prevColor != b.color;
+
+        return false;
     }
 }
 }
