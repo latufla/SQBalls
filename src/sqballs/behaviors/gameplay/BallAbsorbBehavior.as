@@ -55,7 +55,7 @@ public class BallAbsorbBehavior extends BehaviorBase{
     }
 
     override public function stop():void{
-        _controller.object.addInteractionListeners(onBeginInteraction);
+        _controller.object.removeInteractionListeners();
 
         super.stop();
     }

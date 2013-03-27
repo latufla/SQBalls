@@ -37,5 +37,9 @@ public class MathUtil {
     public static function scalarMul(v1:Point, v2:Point):int{
         return v1.x * v2.x + v1.y * v2.y;
     }
+
+    public static function randomize(a:*, b:*) : int {
+        return ( Math.random() > .5 ) ? 1 : -1;
+    }
 }
 }

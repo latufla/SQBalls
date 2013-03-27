@@ -6,6 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.model.info {
+import flash.geom.Point;
+
 public class BotInfo extends UserInfo{
     public static const RETARDED:uint = 0;
     public static const DUMB:uint = 1;
@@ -18,8 +20,10 @@ public class BotInfo extends UserInfo{
         super(id, name)
     }
 
-    public static function create(id:uint, name:String, intelligence:uint = SMART):UserInfo{
+    public static function create(id:uint, name:String, initialPosition:Point, initialRadius:uint, intelligence:uint = SMART):UserInfo{
         var info:UserInfo = new BotInfo(id, name);
+        info.initialPosition = initialPosition;
+        info.initialRadius = initialRadius;
         return info;
     }
 
@@ -34,8 +38,8 @@ public class BotInfo extends UserInfo{
     override public function toString():String{
         return "{ id: " + _id  +
                 ", name: " + _name +
-                ", points: " + _points +
-                ", races: " + _races +
+                ", initialPosition: " + _initialPosition +
+                ", initialRadius: " + _initialRadius +
                 ", intelligence: " + _intelligence + " }";
     }
 }

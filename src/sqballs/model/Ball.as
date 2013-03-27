@@ -28,14 +28,13 @@ public class Ball extends SQObjectBase{
         _rectSize = new Rectangle();
     }
 
-    public static function create(libDesc:String, pos:Point, material:CustomMaterial, interactionGroup:int):Ball{
+    public static function create(libDesc:String, pos:Point, radius:int, material:CustomMaterial):Ball{
         var obj:Ball = new Ball();
         obj.libDesc = libDesc;
         obj.shapes = new <CustomShape>[DEFAULT_SHAPE];
         obj.material = material;
         obj.position = pos;
-        obj.interactionGroup = interactionGroup;
-
+        obj.radius = radius;
         return obj;
     }
 

@@ -37,7 +37,6 @@ public class SQFieldController extends FieldController{
         Config.fieldController = this;
         add(this);
 
-        createItems(field);
         createBalls(field);
     }
 
@@ -70,67 +69,23 @@ public class SQFieldController extends FieldController{
     }
 
     private function createBalls(f:Field):void {
-        var user:UserInfo;
         var ball:Ball;
         var bhs:Vector.<BehaviorBase>;
+        var info:UserInfo;
         var n:uint = f.racers.length;
-        for(var i:uint = 0; i < 4; i++){
-            ball = Ball.create(StarlingAssetsLib.BALL, new Point(150 + i * 180, 250), new CustomMaterial(), 1);
-            ball.radius = 50;
-            user = f.racers[i];
-            ball.name = user.name;
+        for(var i:uint = 0; i < n; i++){
+            info = f.racers[i];
+            ball = Ball.create(StarlingAssetsLib.BALL, info.initialPosition, info.initialRadius, new CustomMaterial());
+            ball.name = info.name;
 
-            if(user is BotInfo)
-                bhs = new <BehaviorBase>[new BallMoveBehavior(), new BallAbsorbBehavior()];
+            if(info is BotInfo)
+                bhs = new <BehaviorBase>[new BallMoveBehavior()]; //new BallAbsorbBehavior()
             else
-                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior(), new BallAbsorbBehavior()];
+                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior()]; //, new BallAbsorbBehavior()
 
             add(BallController.create(ball, bhs));
         }
     }
 
-    private function createItems(f:Field):void {
-//        var medkit:SQObjectBase = SQObjectBase.create("", new Point(650, 250), new <CustomShape>[new CustomPolygon(0, 0, 30, 30)], new CustomMaterial(), 1);
-//        medkit.ammunition.health = 35;
-//
-//        var medkitController:ControllerBase = ControllerBase.create(medkit, new <BehaviorBase>[new MedkitItemBehavior()]);
-//        add(medkitController);
-//
-//        var medkit2:ObjectBase = ObjectBase.create(new Point(130, 500), new <RShape>[new RPolygon(0, 0, 30, 30)], rMaterial, params["other"]["group"]);
-//        medkit2.ammunition.health = 35;
-//
-//        var medkitController2:ControllerBase = ControllerBase.create(medkit2, new <BehaviorBase>[new MedkitItemBehavior()]);
-//        _field.add(medkitController2);
-//
-//        var trap:ObjectBase = ObjectBase.create(new Point(660, 70), new <RShape>[new RPolygon(0, 0, 20, 20)], rMaterial, params["other"]["group"]);
-//        trap.ammunition.health = 120;
-//
-//        var trapController:ControllerBase = ControllerBase.create(trap, new <BehaviorBase>[new TrapItemBehavior()]);
-//        _field.add(trapController);
-//
-//        var trap2:ObjectBase = ObjectBase.create(new Point(70, 70), new <RShape>[new RPolygon(0, 0, 20, 20)], rMaterial, params["other"]["group"]);
-//        trap2.ammunition.health = 120;
-//
-//        var trapController2:ControllerBase = ControllerBase.create(trap2, new <BehaviorBase>[new TrapItemBehavior()]);
-//        _field.add(trapController2);
-//
-//        var trap3:ObjectBase = ObjectBase.create(new Point(400, 70), new <RShape>[new RPolygon(0, 0, 20, 20)], rMaterial, params["other"]["group"]);
-//        trap3.ammunition.health = 120;
-//
-//        var trapController3:ControllerBase = ControllerBase.create(trap3, new <BehaviorBase>[new TrapItemBehavior()]);
-//        _field.add(trapController3);
-//
-//        var trap4:ObjectBase = ObjectBase.create(new Point(70, 300), new <RShape>[new RPolygon(0, 0, 20, 20)], rMaterial, params["other"]["group"]);
-//        trap4.ammunition.health = 120;
-//
-//        var trapController4:ControllerBase = ControllerBase.create(trap4, new <BehaviorBase>[new TrapItemBehavior()]);
-//        _field.add(trapController4);
-//
-//        var trap5:ObjectBase = ObjectBase.create(new Point(400, 650), new <RShape>[new RPolygon(0, 0, 20, 20)], rMaterial, params["other"]["group"]);
-//        trap5.ammunition.health = 120;
-//
-//        var trapController5:ControllerBase = ControllerBase.create(trap5, new <BehaviorBase>[new TrapItemBehavior()]);
-//        _field.add(trapController5);
-    }
 }
 }

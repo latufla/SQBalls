@@ -42,7 +42,7 @@ public class RaceInfoLib {
 //        return f;
 
         var border:BitmapData = Bitmap(new FieldBorderViewClass()).bitmapData;
-        var f:Field = new Field(border, Config.gameInfo.allRacers);
+        var f:Field = new Field(border, Config.gameInfo.users);
         f.libDesc = StarlingAssetsLib.LEVEL_1;
         return f;
     }

@@ -7,6 +7,7 @@
  */
 package sqballs.utils {
 import flash.display.Stage;
+import flash.geom.Rectangle;
 
 import sqballs.Engine;
 import sqballs.SceneController;
@@ -27,7 +28,9 @@ public class Config {
 
     public static var enemyColors:Array = [0x0000FF, 0xFF0000];
 
-    public static var soundEnabled:Boolean = true;
+    public static var ballRadiusSteps:Array = [10, 20, 30];
+    public static var levelRect:Rectangle = new Rectangle(44, 40, 935, 668);
+    public static var maxBallsCount:uint = 20;
 
     // gameplay
     public static function get pointsForPlacePlanet1():Array{

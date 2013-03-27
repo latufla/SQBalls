@@ -11,6 +11,7 @@ import core.utils.EventHeap;
 
 import flash.display.MovieClip;
 import flash.events.EventDispatcher;
+import flash.geom.Point;
 import flash.utils.Dictionary;
 import flash.utils.setTimeout;
 
@@ -44,7 +45,7 @@ public class SceneController extends EventDispatcher{
 
         addEventListeners();
 
-        var player:UserInfo = UserInfo.create(0, "rat0");
+        var player:UserInfo = UserInfo.create(0, "ball0", new Point(99, 90), 30);
         Config.gameInfo = new GameInfo(player);
         trace(Config.gameInfo);
 
@@ -73,7 +74,7 @@ public class SceneController extends EventDispatcher{
         Config.mainScene.removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
         DisplayObjectUtil.removeAll(_view);
         _field.destroy();
-        Config.gameInfo.refresh();
+//        Config.gameInfo.refresh();
 
 //        DisplayObjectUtil.removeAll(_view);
 //        var raceInfo:RaceInfo = RaceInfoLib.getRaceInfoByLevel(1);

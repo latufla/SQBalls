@@ -20,8 +20,8 @@ import flash.geom.Point;
 import sqballs.model.Ball;
 
 import starling.display.Image;
-import starling.display.Sprite;
 import starling.display.DisplayObject;
+import starling.display.Sprite;
 
 public class BallController extends SQControllerBase{
 
