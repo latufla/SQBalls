@@ -76,12 +76,13 @@ public class SQFieldController extends FieldController{
         for(var i:uint = 0; i < n; i++){
             info = f.racers[i];
             ball = Ball.create(StarlingAssetsLib.BALL, info.initialPosition, info.initialRadius, new CustomMaterial());
+            ball.color = Config.userColor;
             ball.name = info.name;
 
             if(info is BotInfo)
-                bhs = new <BehaviorBase>[new BallMoveBehavior()]; //new BallAbsorbBehavior()
+                bhs = new <BehaviorBase>[new BallMoveBehavior(), new BallAbsorbBehavior()]; //new BallAbsorbBehavior()
             else
-                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior()]; //, new BallAbsorbBehavior()
+                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior(), new BallAbsorbBehavior()]; //, new BallAbsorbBehavior()
 
             add(BallController.create(ball, bhs));
         }

@@ -20,7 +20,7 @@ public class Ball extends SQObjectBase{
     private static const DEFAULT_SHAPE:CustomCircle = new CustomCircle(DEFAULT_RADIUS);
 
     protected var _radius:uint = DEFAULT_RADIUS;
-    protected var _color:uint = 0x3FD9F4;
+    protected var _color:uint = 0xFFFFFF;
     protected var _rectSize:Rectangle;
 
     public function Ball() {

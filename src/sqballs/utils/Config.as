@@ -16,7 +16,8 @@ import sqballs.model.info.GameInfo;
 
 public class Config {
 
-    public static const fps:uint = 60;
+    public static const EXTERNAL_CONFIG:String = "../../../assets/config.txt";
+    public static const FPS:uint = 60;
     public static const DEBUG:Boolean = false;
 
     public static var stage:Stage;
@@ -26,6 +27,7 @@ public class Config {
     public static var sceneController:SceneController;
     public static var gameInfo:GameInfo;
 
+    public static var userColor:uint = 0x3FD9F4;
     public static var enemyColors:Array = [0x0000FF, 0xFF0000];
 
     public static var ballRadiusSteps:Array = [10, 20, 30];
