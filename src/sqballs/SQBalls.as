@@ -9,7 +9,7 @@ import sqballs.utils.Config;
 
 import starling.core.Starling;
 
-[SWF(width="1024", height="768", backgroundColor="#FFFFFF", frameRate="60")]
+[SWF(width="1024", height="768", backgroundColor="#000000", frameRate="60")]
 public class SQBalls extends Sprite {
 
     private var _starlingConnector:Starling;

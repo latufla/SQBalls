@@ -72,15 +72,6 @@ public class Field extends SQObjectBase{
         return null;
     }
 
-    public function getRacerPoints(r:UserInfo):int {
-        var place:int = _finishers.indexOf(r);
-        if(place == -1)
-            return 0;
-
-        return Config.pointsForPlacePlanet1[place];
-    }
-
-
     public function get raceIsFinished():Boolean{
         return _runners.length == 0;
     }
