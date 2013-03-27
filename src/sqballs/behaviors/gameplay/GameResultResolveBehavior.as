@@ -9,6 +9,7 @@ package sqballs.behaviors.gameplay {
 import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
 import core.utils.EventHeap;
+import core.utils.VectorUtil;
 
 import sqballs.controller.BallController;
 
@@ -42,35 +43,28 @@ public class GameResultResolveBehavior extends BehaviorBase{
             return;
         }
 
-        // only user ball - victory
+        // area more or equal all enemy areas summ
         var ballCs:Vector.<ControllerBase> = fieldC.getControllersByClass(BallController);
+        VectorUtil.removeElement(ballCs, playerBallC);
+        var enemyAreasSumm:Number = 0;
+        for each(var p:ControllerBase in ballCs){
+            enemyAreasSumm += (p.object as Ball).area;
+        }
 
-        if(ballCs.length == 1 && ballCs[0] == playerBallC){
+        var playerB:Ball = playerBallC.object as Ball;
+        var pBArea:int = playerB.area;
+        if(pBArea >= enemyAreasSumm){
             applyBrawlResult(VICTORY);
             return;
         }
 
-        var playerB:Ball = playerBallC.object as Ball;
-        var pBArea:int = playerB.area; // easy for comparision
-
+        // player area less than every enemy area
         var smallerBallsCs:Vector.<ControllerBase> = ballCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
             return int((e.object as Ball).area) <= pBArea;
         });
 
-         // if there is no balls with smaller or equal areas
-        // 1 for player ball
-        if(smallerBallsCs.length <= 1){
+        if(smallerBallsCs.length == 0)
             applyBrawlResult(DEFEAT);
-            return;
-        }
-
-        var biggerOppsCs:Vector.<ControllerBase> = ballCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
-            return int((e.object as Ball).area) > pBArea;
-        });
-
-        // no bigger balls
-        if(biggerOppsCs.length == 0)
-            applyBrawlResult(VICTORY);
     }
 
     private function applyBrawlResult(result:String):void {

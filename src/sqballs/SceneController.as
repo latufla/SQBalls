@@ -57,7 +57,7 @@ public class SceneController extends EventDispatcher{
         initRestartButton();
         addEventListeners();
 
-        var player:UserInfo = UserInfo.create(0, "ball0", new Point(99, 90), 20);
+        var player:UserInfo = UserInfo.create(0, "ball0", new Point(), Config.playerBallRadius);
         Config.gameInfo = new GameInfo(player);
 
         EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_BRAWL));

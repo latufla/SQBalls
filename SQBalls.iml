@@ -5,13 +5,10 @@
       <configuration name="SQBalls" pure-as="true" main-class="sqballs.SQBalls" output-file="SQBalls.swf" output-folder="$MODULE_DIR$/out/production/SQBalls">
         <dependencies target-player="11.1">
           <entries>
-            <entry library-id="c9f8f580-d191-4c6a-a5ee-80ddd1bdf8e3">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-id="b14471eb-e554-4c59-a199-fcfc0c701732">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-id="df5e1a0d-be1c-4578-a1cc-813f05182727">
+            <entry library-id="add9c1a5-9470-4111-ba50-1c71b8600ec1">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -34,16 +31,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="c9f8f580-d191-4c6a-a5ee-80ddd1bdf8e3" />
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/nape-dev.swc!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
         <properties id="b14471eb-e554-4c59-a199-fcfc0c701732" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/starling.swc!/" />
@@ -54,9 +41,9 @@
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="df5e1a0d-be1c-4578-a1cc-813f05182727" />
+        <properties id="add9c1a5-9470-4111-ba50-1c71b8600ec1" />
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/assets/gui/mainGUI.swc!/" />
+          <root url="jar://$MODULE_DIR$/lib/nape-release.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -27,7 +27,6 @@ public class Config {
     public static const FPS:uint = 60;
     public static const DEBUG:Boolean = false;
 
-
     // in game
     public static var stage:Stage;
     public static var mainScene:Engine;
@@ -41,7 +40,9 @@ public class Config {
     public static var playerBallColor:uint = 0xFFFFFF;
     public static var enemyBallColors:Array = [0x0000FF, 0xFF0000];
 
-    public static var ballRadiusSteps:Array = [10, 20, 30];
+    public static var ballRadiusSteps:Array = [30, 40, 50];
+    public static var playerBallRadius:uint = ballRadiusSteps[1];
+
     public static var levelRect:Rectangle = new Rectangle(44, 40, 935, 668);
     public static var maxBallsCount:uint = 20;
     //--------

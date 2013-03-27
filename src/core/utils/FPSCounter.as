@@ -13,6 +13,8 @@ import flash.text.TextField;
 import flash.text.TextFieldAutoSize;
 import flash.utils.getTimer;
 
+import sqballs.utils.Config;
+
 public class FPSCounter extends Sprite{
     private var last:uint = getTimer();
     private var ticks:uint = 0;
@@ -41,7 +43,7 @@ public class FPSCounter extends Sprite{
         if (delta >= 1000) {
             //trace(ticks / delta * 1000+" ticks:"+ticks+" delta:"+delta);
             var fps:Number = ticks / delta * 1000;
-            tf.text = fps.toFixed(1) + " fps";
+            tf.text = fps.toFixed(1) + " fps" + " gpu: " + Config.stage.wmodeGPU;
             ticks = 0;
             last = now;
         }

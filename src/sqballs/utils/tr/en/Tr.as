@@ -19,15 +19,15 @@ public class Tr {
     }
 
     public static function get victoryText():String{
-        return "U win! Press Ok to start new brawl!";
+        return "U win!";
     }
 
     public static function get defeatText():String{
-        return "Sorry! U lose! Press Ok to start new brawl!";
+        return "Sorry! U lose.";
     }
 
     public static function get restartBrawlText():String{
-        return "Shure, U wanna restart brawl?";
+        return "Wanna restart brawl?";
     }
 }
 }
