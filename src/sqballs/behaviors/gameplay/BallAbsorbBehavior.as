@@ -10,27 +10,43 @@ import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
 import core.model.ObjectBase;
 
+import sqballs.utils.Color;
+
 import sqballs.controller.BallController;
 import sqballs.controller.SQFieldController;
 import sqballs.model.Ball;
-import sqballs.model.SQObjectBase;
 import sqballs.utils.Config;
 
 public class BallAbsorbBehavior extends BehaviorBase{
+
+    private static const COLOR_CHANGE_STEP:Number = .2;
+
     public function BallAbsorbBehavior() {
         super();
     }
 
-    private var cnt:int = 50;
     override public function doStep(step:Number):void {
         if(!_enabled)
             return;
 
         super.doStep(step);
 
-        var obj:SQObjectBase = _controller.object as SQObjectBase;
-    }
+        var b:Ball = _controller.object as Ball;
+        var playerBallC:BallController = Config.fieldController.playerBallController as BallController;
+        if(!(b && playerBallC))
+            return;
 
+        var pB:Ball = playerBallC.object as Ball;
+        if(!pB || pB == b)
+            return;
+
+        var bArea:int = b.area; // better for comparision
+        var pBArea:int = pB.area
+        var ratio:Number = (bArea / pBArea) / 2; // need between 0 and 1
+        ratio = ratio < 1 ? ratio : 1;
+        ratio = int(ratio / COLOR_CHANGE_STEP) * COLOR_CHANGE_STEP; // avoid often color changes
+        b.color = Color.interpolateColor(Config.enemyColors[0], Config.enemyColors[1], ratio);
+    }
 
     override public function start(c:ControllerBase):void{
         super.start(c);

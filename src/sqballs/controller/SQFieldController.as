@@ -48,18 +48,18 @@ public class SQFieldController extends FieldController{
             field.updateRaceProgress();
     }
 
-    public function get playerBallController():ControllerBase{
+    public function get playerBallController():BallController{
         return getBallControllerByUserInfo(field.player);
     }
 
-    public function getBallControllerByUserInfo(p:UserInfo):ControllerBase{
+    public function getBallControllerByUserInfo(p:UserInfo):BallController{
         var ratCs:Vector.<ControllerBase> = getControllersByClass(BallController);
         var res:Vector.<ControllerBase> = ratCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
             return e.object.name == p.name;
         });
 
         if(res.length > 0)
-            return res[0];
+            return res[0] as BallController;
 
         return null;
     }
@@ -81,7 +81,7 @@ public class SQFieldController extends FieldController{
             ball.name = user.name;
 
             if(user is BotInfo)
-                bhs = new <BehaviorBase>[new BallMoveBehavior()];
+                bhs = new <BehaviorBase>[new BallMoveBehavior(), new BallAbsorbBehavior()];
             else
                 bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior(), new BallAbsorbBehavior()];
 

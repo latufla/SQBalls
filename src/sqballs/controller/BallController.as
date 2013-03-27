@@ -42,6 +42,7 @@ public class BallController extends SQControllerBase{
         return c;
     }
 
+    // TODO: pool of initial ball views
     override protected function redrawContent():void{
         _initialContentView ||= _view.asset as DisplayObject;
         clear();
@@ -53,6 +54,7 @@ public class BallController extends SQControllerBase{
         var ballView:Sprite = new Sprite();
         ballView.addChild(ballImage);
 
+        // TODO: opt
         var pMask:PixelMaskDisplayObject = new PixelMaskDisplayObject();
         pMask.addChild(ballView);
         pMask.mask = _view.asset;

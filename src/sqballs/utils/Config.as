@@ -25,6 +25,8 @@ public class Config {
     public static var sceneController:SceneController;
     public static var gameInfo:GameInfo;
 
+    public static var enemyColors:Array = [0x0000FF, 0xFF0000];
+
     public static var soundEnabled:Boolean = true;
 
     // gameplay
