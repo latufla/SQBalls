@@ -34,6 +34,7 @@ import starling.events.EnterFrameEvent;
 
 public class SceneController extends EventDispatcher{
     private static const RESTART_BUTTON_POS:Point = new Point(900, 2);
+    private static const SIMULATION_STEP:Number = 1 / 60; // normally we use time between frames, but it`s acceptable for single player
 
     private var _gameEventHandlers:Dictionary; // sqballs.event type -> function
 
@@ -116,7 +117,7 @@ public class SceneController extends EventDispatcher{
         _fieldController = new SQFieldController(FieldLib.getFieldByLevel());
         _fieldController.addBehavior(new GameResultResolveBehavior());
         _fieldController.startBehaviors();
-        _fieldController.draw();
+        _fieldController.doStep(SIMULATION_STEP);
 
         if(Config.DEBUG){
             _fieldDebugView = new BitmapDebug(Config.stage.stageWidth, Config.stage.stageHeight, 0xFFFFFF);
@@ -129,12 +130,13 @@ public class SceneController extends EventDispatcher{
 
     private function mainLoop(e:EnterFrameEvent):void {
         _fieldController.draw();
+
         if(!_fieldController.view.parent)
             Config.mainScene.addChild(_fieldController.view);
 
         // normaly we should use e.passedTime,
         // but it`s single player so matter only if FPS is dramatically low
-        _fieldController.doStep(1 / 60, _fieldDebugView);
+        _fieldController.doStep(SIMULATION_STEP, _fieldDebugView);
     }
 
     private function restartRace():void{
