@@ -7,14 +7,19 @@
  */
 package sqballs {
 
+import core.utils.DisplayObjectUtil;
 import core.utils.FPSCounter;
 
+import flash.display.MovieClip;
+
 import sqballs.utils.Config;
+import sqballs.utils.FlashAssetsLib;
 
 import starling.display.Sprite;
 
 public class Engine extends Sprite{
 
+    private var _preloader:MovieClip;
     private var _scene:SceneController;
 
     public function Engine() {
@@ -23,9 +28,10 @@ public class Engine extends Sprite{
 
     private function init():void {
         Config.mainScene = this;
+
+        showPreloader();
         Config.load(onCompleteLoadConfig, onErrorLoadConfig);
     }
-
 
     private function onCompleteLoadConfig():void {
         initScene();
@@ -38,9 +44,24 @@ public class Engine extends Sprite{
     }
 
     private function initScene():void {
+        removePreloader();
+
         _scene = new SceneController();
-        Config.stage.addChild(new FPSCounter(5, 5));
+        Config.stage.addChild(new FPSCounter(5, 2));
     }
+
+    private function showPreloader():void{
+        _preloader = FlashAssetsLib.instance.createAssetBy(FlashAssetsLib.PRELOADER_VIEW);
+        _preloader.play();
+        Config.stage.addChild(_preloader);
+        DisplayObjectUtil.alignByCenter(_preloader, true, true);
+    }
+
+    private function removePreloader():void{
+        _preloader.stop();
+        DisplayObjectUtil.tryRemove(_preloader);
+    }
+
 
 }
 }

@@ -20,6 +20,10 @@ public class FlashAssetsLib {
     [Embed(source="../../../assets/gui/GUI.swf", symbol="RefreshButton")]
     private const RefreshViewClass:Class;
 
+    public static const PRELOADER_VIEW:String = "preloaderView";
+    [Embed(source="../../../assets/gui/GUI.swf", symbol="PreloaderView")]
+    private const PreloaderViewClass:Class;
+
     private var _assets:Array/* String -> MovieClip`s */;
 
     private static var _instance:FlashAssetsLib;
@@ -36,6 +40,7 @@ public class FlashAssetsLib {
         _assets = [];
         _assets[DIALOG_WINDOW] = DialogWindowClass;
         _assets[REFRESH_BUTTON] = RefreshViewClass;
+        _assets[PRELOADER_VIEW] = PreloaderViewClass;
     }
 
     public function getAssetClassBy(name:String):Class{

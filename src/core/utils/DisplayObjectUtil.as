@@ -8,6 +8,7 @@
 package core.utils {
 import flash.display.BitmapData;
 import flash.display.Shape;
+import flash.display.Stage;
 import flash.geom.Point;
 
 public class DisplayObjectUtil {
@@ -38,11 +39,20 @@ public class DisplayObjectUtil {
         if(!view || !view.parent)
             return;
 
+        var parentWidth:uint = view.parent.width;
+        var parentHeight:uint = view.parent.height;
+
+        var stage:Stage = view.parent as Stage;
+        if(stage){
+            parentWidth = stage.stageWidth;
+            parentHeight = stage.stageHeight;
+        }
+
         if(byX)
-            view.x = view.parent.width / 2 - view.width / 2;
+            view.x = parentWidth / 2 - view.width / 2;
 
         if(byY)
-            view.y = view.parent.height / 2 + view.height / 2
+            view.y = parentHeight / 2 - view.height / 2
     }
 
 
