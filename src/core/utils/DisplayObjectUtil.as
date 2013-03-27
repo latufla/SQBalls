@@ -34,9 +34,20 @@ public class DisplayObjectUtil {
         return bd;
     }
 
+    public static function alignByCenter(view:*, byX:Boolean, byY:Boolean):void{
+        if(!view || !view.parent)
+            return;
+
+        if(byX)
+            view.x = view.parent.width / 2 - view.width / 2;
+
+        if(byY)
+            view.y = view.parent.height / 2 + view.height / 2
+    }
+
 
     public static function rgbToHex(r:int, g:int, b:int):uint{
-        return (r<<16)|(g << 8)|b;
+        return (r << 16) | (g << 8) | b;
     }
 }
 }

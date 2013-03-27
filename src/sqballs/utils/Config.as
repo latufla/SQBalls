@@ -27,6 +27,7 @@ public class Config {
     public static const FPS:uint = 60;
     public static const DEBUG:Boolean = false;
 
+
     // in game
     public static var stage:Stage;
     public static var mainScene:Engine;

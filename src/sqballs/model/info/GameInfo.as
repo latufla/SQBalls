@@ -16,18 +16,27 @@ import sqballs.utils.Config;
 public class GameInfo {
 
     private static const BALL_PLACE_OFFSET:int = 5;
+    private var _player:UserInfo;
     private var _users:Vector.<UserInfo>;
 
     public function GameInfo(player:UserInfo){
-        init(player);
-    }
-
-    private function init(player:UserInfo):void {
-        _users = generateAndPlaceUsers(player);
+        _player = player;
     }
 
     public function toString():String{
         return "{ users: " + _users + "}";
+    }
+
+    public function refresh():void{
+        _users = generateAndPlaceUsers(_player);
+    }
+
+    public function get users():Vector.<UserInfo> {
+        return _users;
+    }
+
+    public function set users(value:Vector.<UserInfo>):void {
+        _users = value;
     }
 
     // TODO: think about Knapsack problem and nonrect generate
@@ -67,14 +76,6 @@ public class GameInfo {
         }
 
         return users;
-    }
-
-    public function get users():Vector.<UserInfo> {
-        return _users;
-    }
-
-    public function set users(value:Vector.<UserInfo>):void {
-        _users = value;
     }
 }
 }

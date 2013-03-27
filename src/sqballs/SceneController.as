@@ -17,13 +17,18 @@ import flash.utils.setTimeout;
 
 import nape.util.BitmapDebug;
 
+import sqballs.behaviors.gameplay.GameResultResolveBehavior;
+
 import sqballs.controller.SQFieldController;
 import sqballs.event.GameEvent;
 import sqballs.model.Field;
 import sqballs.model.info.GameInfo;
 import sqballs.model.info.UserInfo;
 import sqballs.utils.Config;
-import sqballs.utils.RaceInfoLib;
+import sqballs.utils.Config;
+import sqballs.utils.FieldLib;
+import sqballs.utils.tr.en.Tr;
+import sqballs.view.DialogWindowView;
 
 import starling.events.EnterFrameEvent;
 
@@ -32,7 +37,7 @@ public class SceneController extends EventDispatcher{
 
     private var _view:MovieClip;
 
-    private var _field:SQFieldController;
+    private var _fieldController:SQFieldController;
     private var _fieldDebugView:BitmapDebug;
 
     public function SceneController() {
@@ -45,18 +50,19 @@ public class SceneController extends EventDispatcher{
 
         addEventListeners();
 
-        var player:UserInfo = UserInfo.create(0, "ball0", new Point(99, 90), 30);
+        var player:UserInfo = UserInfo.create(0, "ball0", new Point(99, 90), 5);
         Config.gameInfo = new GameInfo(player);
-        trace(Config.gameInfo);
 
-        EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_RACE));
+        EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_BRAWL));
         Config.sceneController = this;
     }
 
+    // we should be able to dispatch game events in random project files
+    // so it`s global
     private function addEventListeners():void {
         _gameEventHandlers = new Dictionary();
-        _gameEventHandlers[GameEvent.NEED_RACE] = onNeedRace;
-        _gameEventHandlers[GameEvent.NEED_RACE_RESULT] = onNeedRaceResult;
+        _gameEventHandlers[GameEvent.NEED_BRAWL] = onNeedBrawl;
+        _gameEventHandlers[GameEvent.NEED_BRAWL_RESULT] = onNeedBrawlResult;
 
         for (var p:String in _gameEventHandlers){
             EventHeap.instance.register(p, onGameEvent);
@@ -70,45 +76,57 @@ public class SceneController extends EventDispatcher{
             handler(e.data);
     }
 
-    private function onNeedRaceResult(data:*):void{
-        Config.mainScene.removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
+    private function onNeedBrawlResult(data:*):void{
         DisplayObjectUtil.removeAll(_view);
-        _field.destroy();
-//        Config.gameInfo.refresh();
+        Config.mainScene.removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
 
-//        DisplayObjectUtil.removeAll(_view);
-//        var raceInfo:RaceInfo = RaceInfoLib.getRaceInfoByLevel(1);
-//        _view.addChild(new RaceResultView(data.raceInfo));
+        var resultWnd:DialogWindowView = new DialogWindowView();
+        if(data.result == GameResultResolveBehavior.VICTORY)
+            resultWnd.contentField.text = Tr.victoryText;
+        else
+            resultWnd.contentField.text = Tr.defeatText;
+
+        resultWnd.applyNoDeny();
+        resultWnd.x = resultWnd.y = 300;
+        resultWnd.okButtonCallback = restartRace;
+        Config.stage.addChild(resultWnd);
     }
 
-    private function onNeedRace(data:*):void{
+    private function onNeedBrawl(data:*):void{
         DisplayObjectUtil.removeAll(_view);
 
-        var f:Field = RaceInfoLib.getRaceInfoByLevel(1);
-        _field = new SQFieldController(f);
-//        _field.addBehavior(new CameraBehavior());
-        _field.draw();
+        Config.gameInfo.refresh();
+
+        _fieldController = new SQFieldController(FieldLib.getFieldByLevel());
+        _fieldController.addBehavior(new GameResultResolveBehavior());
+        _fieldController.startBehaviors();
+        _fieldController.draw();
 
         if(Config.DEBUG){
-            _fieldDebugView = new BitmapDebug(1850, 1870, Config.stage.color);
+            _fieldDebugView = new BitmapDebug(Config.stage.stageWidth, Config.stage.stageHeight, 0xFFFFFF);
             _view.addChild(_fieldDebugView.display);
             _view.alpha = 0.5;
         }
 
-        setTimeout(Config.mainScene.addEventListener, 2000,  EnterFrameEvent.ENTER_FRAME, mainLoop);
+        Config.mainScene.addEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
     }
 
     private function mainLoop(e:EnterFrameEvent):void {
-        _field.draw();
-        if(!_field.view.parent)
-            Config.mainScene.addChild(_field.view);
+        _fieldController.draw();
+        if(!_fieldController.view.parent)
+            Config.mainScene.addChild(_fieldController.view);
 
-//        var passedTime:Number = e.passedTime != 0 ? e.passedTime : 0.00001;
-        _field.doStep(1 / 60, _fieldDebugView);
+        // normaly we should use e.passedTime,
+        // but it`s single player so matter only if FPS is dramatically low
+        _fieldController.doStep(1 / 60, _fieldDebugView);
     }
 
-    public function get view():MovieClip {
-        return _view;
+    private function restartRace():void{
+        Config.mainScene.removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
+        DisplayObjectUtil.removeAll(_view);
+        _fieldController.destroy();
+
+        EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_BRAWL));
     }
 }
 }

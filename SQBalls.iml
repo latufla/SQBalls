@@ -11,6 +11,9 @@
             <entry library-id="b14471eb-e554-4c59-a199-fcfc0c701732">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="df5e1a0d-be1c-4578-a1cc-813f05182727">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="flexSDK4.6" />
         </dependencies>
@@ -44,6 +47,16 @@
         <properties id="b14471eb-e554-4c59-a199-fcfc0c701732" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/starling.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="df5e1a0d-be1c-4578-a1cc-813f05182727" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/assets/gui/mainGUI.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
