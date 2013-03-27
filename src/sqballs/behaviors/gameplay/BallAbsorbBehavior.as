@@ -45,7 +45,7 @@ public class BallAbsorbBehavior extends BehaviorBase{
         var ratio:Number = (bArea / pBArea) / 2; // need between 0 and 1
         ratio = ratio < 1 ? ratio : 1;
         ratio = int(ratio / COLOR_CHANGE_STEP) * COLOR_CHANGE_STEP; // avoid often color changes
-        b.color = Color.interpolateColor(Config.enemyColors[0], Config.enemyColors[1], ratio);
+        b.color = Color.interpolateColor(Config.enemyBallColors[0], Config.enemyBallColors[1], ratio);
     }
 
     override public function start(c:ControllerBase):void{

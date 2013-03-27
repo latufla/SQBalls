@@ -38,8 +38,8 @@ public class Config {
    // --------
 
     // pretend to be external
-    public static var userColor:uint = 0xFF0000;
-    public static var enemyColors:Array = [0x0000FF, 0xFF0000];
+    public static var playerBallColor:uint = 0xFFFFFF;
+    public static var enemyBallColors:Array = [0x0000FF, 0xFF0000];
 
     public static var ballRadiusSteps:Array = [10, 20, 30];
     public static var levelRect:Rectangle = new Rectangle(44, 40, 935, 668);
@@ -73,7 +73,7 @@ public class Config {
 
     private static function update(jsonData:Object):void{
         var colorArr:Array = jsonData["user"]["color"];
-        Config.userColor = DisplayObjectUtil.rgbToHex(colorArr[0], colorArr[1], colorArr[2]);
+        Config.playerBallColor = DisplayObjectUtil.rgbToHex(colorArr[0], colorArr[1], colorArr[2]);
 
         colorArr = jsonData["enemy"]["color1"];
         var enemyColors:Array = [DisplayObjectUtil.rgbToHex(colorArr[0], colorArr[1], colorArr[2])];
@@ -81,7 +81,7 @@ public class Config {
         colorArr = jsonData["enemy"]["color2"];
         enemyColors.push(DisplayObjectUtil.rgbToHex(colorArr[0], colorArr[1], colorArr[2]));
 
-        Config.enemyColors = enemyColors;
+        Config.enemyBallColors = enemyColors;
         Config.maxBallsCount = jsonData["maxBallsCount"];
     }
 

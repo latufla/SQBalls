@@ -49,18 +49,18 @@ public class SceneController extends EventDispatcher{
     }
 
     private function init():void {
+        Config.sceneController = this;
+
         _view = new MovieClip();
         Config.stage.addChild(_view);
 
         initRestartButton();
-
         addEventListeners();
 
         var player:UserInfo = UserInfo.create(0, "ball0", new Point(99, 90), 20);
         Config.gameInfo = new GameInfo(player);
 
         EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_BRAWL));
-        Config.sceneController = this;
     }
 
     private function initRestartButton():void {

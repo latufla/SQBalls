@@ -76,7 +76,7 @@ public class SQFieldController extends FieldController{
         for(var i:uint = 0; i < n; i++){
             info = f.racers[i];
             ball = Ball.create(StarlingAssetsLib.BALL, info.initialPosition, info.initialRadius, new CustomMaterial());
-            ball.color = Config.userColor;
+            ball.color = Config.playerBallColor;
             ball.name = info.name;
 
             if(info is BotInfo)
