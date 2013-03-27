@@ -18,14 +18,14 @@ import flash.text.TextFieldAutoSize;
 import flash.text.TextFormat;
 
 import sqballs.utils.FlashAssetsLib;
+import sqballs.utils.FontUtil;
 
 public class DialogWindowView extends Sprite{
 
     private var _container:DisplayObjectContainer;
     private var _okButtonCallback:Function;
-
-    [Embed(source="../../../assets/fonts/ARIALUNI.TTF", fontName = "myArial", mimeType = "application/x-font", unicodeRange = "U+0020-007E", fontWeight="normal", fontStyle="normal", advancedAntiAliasing="true", embedAsCFF="false")]
-    private var myArialFont:Class;
+    private var _cancelButtonCallback:Function;
+    private var _closeButtonCallback:Function;
 
     public function DialogWindowView() {
         super();
@@ -46,7 +46,7 @@ public class DialogWindowView extends Sprite{
 
         contentField.autoSize = TextFieldAutoSize.LEFT;
         contentField.embedFonts = true;
-        contentField.defaultTextFormat = new TextFormat("myArial", 16);
+        FontUtil.setDefaultFont(contentField, 16);
         contentField.textColor = 0xFFFFFF;
         contentField.text = "Default SQBalls dialog sign!";
 
@@ -58,15 +58,7 @@ public class DialogWindowView extends Sprite{
         DisplayObjectUtil.alignByCenter(okButton, true, false);
     }
 
-    public function get okButtonCallback():Function {
-        return _okButtonCallback;
-    }
-
-    public function set okButtonCallback(value:Function):void {
-        _okButtonCallback = value;
-    }
-
-    public function get contentField():TextField{
+     public function get contentField():TextField{
         return _container["contentField"];
     }
 
@@ -81,6 +73,18 @@ public class DialogWindowView extends Sprite{
 
     public function get okButton():MovieClip{
         return _container["okButton"];
+    }
+
+    public function set okButtonCallback(value:Function):void {
+        _okButtonCallback = value;
+    }
+
+    public function set cancelButtonCallback(value:Function):void {
+        _cancelButtonCallback = value;
+    }
+
+    public function set closeButtonCallback(value:Function):void {
+        _closeButtonCallback = value;
     }
 
     protected function addEventListeners():void {
@@ -98,10 +102,17 @@ public class DialogWindowView extends Sprite{
     protected function onCloseButtonClick(e:MouseEvent = null):void {
         DisplayObjectUtil.tryRemove(this);
         removeEventListeners();
+
+        if(_closeButtonCallback)
+            _closeButtonCallback();
     }
 
     protected function onCancelButtonClick(e:MouseEvent = null):void {
-        onCloseButtonClick();
+        DisplayObjectUtil.tryRemove(this);
+        removeEventListeners();
+
+        if(_cancelButtonCallback)
+            _cancelButtonCallback();
     }
 
     protected function onOkButtonClick(e:MouseEvent = null):void {

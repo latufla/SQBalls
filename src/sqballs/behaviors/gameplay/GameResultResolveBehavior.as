@@ -35,19 +35,29 @@ public class GameResultResolveBehavior extends BehaviorBase{
         if(!fieldC)
             return;
 
+        // no user ball - defeat
         var playerBallC:BallController = fieldC.playerBallController;
-        if(!playerBallC)
+        if(!playerBallC){
+            applyBrawlResult(DEFEAT);
             return;
+        }
+
+        // only user ball - victory
+        var ballCs:Vector.<ControllerBase> = fieldC.getControllersByClass(BallController);
+
+        if(ballCs.length == 1 && ballCs[0] == playerBallC){
+            applyBrawlResult(VICTORY);
+            return;
+        }
 
         var playerB:Ball = playerBallC.object as Ball;
         var pBArea:int = playerB.area; // easy for comparision
-        var ballCs:Vector.<ControllerBase> = fieldC.getControllersByClass(BallController);
 
         var smallerBallsCs:Vector.<ControllerBase> = ballCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
             return int((e.object as Ball).area) <= pBArea;
         });
 
-        // if there is no balls with smaller or equal areas
+         // if there is no balls with smaller or equal areas
         // 1 for player ball
         if(smallerBallsCs.length <= 1){
             applyBrawlResult(DEFEAT);

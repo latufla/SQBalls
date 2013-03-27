@@ -7,12 +7,18 @@
  */
 package sqballs.utils {
 import flash.display.DisplayObjectContainer;
+import flash.display.MovieClip;
+import flash.display.Sprite;
 
 public class FlashAssetsLib {
 
     public static const DIALOG_WINDOW:String = "dialogWindow";
     [Embed(source="../../../assets/gui/GUI.swf", symbol="DialogWindowView")]
-    private const DialogWindow:Class;
+    private const DialogWindowClass:Class;
+
+    public static const REFRESH_BUTTON:String = "refreshButton";
+    [Embed(source="../../../assets/gui/GUI.swf", symbol="RefreshButton")]
+    private const RefreshViewClass:Class;
 
     private var _assets:Array/* String -> MovieClip`s */;
 
@@ -28,7 +34,8 @@ public class FlashAssetsLib {
 
     private function init():void {
         _assets = [];
-        _assets[DIALOG_WINDOW] = DialogWindow;
+        _assets[DIALOG_WINDOW] = DialogWindowClass;
+        _assets[REFRESH_BUTTON] = RefreshViewClass;
     }
 
     public function getAssetClassBy(name:String):Class{
@@ -42,9 +49,9 @@ public class FlashAssetsLib {
         return asset;
     }
 
-    public function createAssetBy(className:String):DisplayObjectContainer{
+    public function createAssetBy(className:String):*{
         var asset:Class = getAssetClassBy(className);
-        return new asset() as DisplayObjectContainer;
+        return new asset() as Sprite;
     }
 }
 }

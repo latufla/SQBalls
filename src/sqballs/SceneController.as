@@ -10,10 +10,11 @@ import core.utils.DisplayObjectUtil;
 import core.utils.EventHeap;
 
 import flash.display.MovieClip;
+import flash.display.Sprite;
 import flash.events.EventDispatcher;
+import flash.events.MouseEvent;
 import flash.geom.Point;
 import flash.utils.Dictionary;
-import flash.utils.setTimeout;
 
 import nape.util.BitmapDebug;
 
@@ -21,21 +22,23 @@ import sqballs.behaviors.gameplay.GameResultResolveBehavior;
 
 import sqballs.controller.SQFieldController;
 import sqballs.event.GameEvent;
-import sqballs.model.Field;
 import sqballs.model.info.GameInfo;
 import sqballs.model.info.UserInfo;
 import sqballs.utils.Config;
-import sqballs.utils.Config;
 import sqballs.utils.FieldLib;
+import sqballs.utils.FlashAssetsLib;
 import sqballs.utils.tr.en.Tr;
 import sqballs.view.DialogWindowView;
 
 import starling.events.EnterFrameEvent;
 
 public class SceneController extends EventDispatcher{
+    private static const RESTART_BUTTON_POS:Point = new Point(900, 2);
+
     private var _gameEventHandlers:Dictionary; // sqballs.event type -> function
 
     private var _view:MovieClip;
+    private var _restartButton:Sprite;
 
     private var _fieldController:SQFieldController;
     private var _fieldDebugView:BitmapDebug;
@@ -48,13 +51,31 @@ public class SceneController extends EventDispatcher{
         _view = new MovieClip();
         Config.stage.addChild(_view);
 
+        initRestartButton();
+
         addEventListeners();
 
-        var player:UserInfo = UserInfo.create(0, "ball0", new Point(99, 90), 5);
+        var player:UserInfo = UserInfo.create(0, "ball0", new Point(99, 90), 20);
         Config.gameInfo = new GameInfo(player);
 
         EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_BRAWL));
         Config.sceneController = this;
+    }
+
+    private function initRestartButton():void {
+        _restartButton = FlashAssetsLib.instance.createAssetBy(FlashAssetsLib.REFRESH_BUTTON);
+        _restartButton.x = RESTART_BUTTON_POS.x;
+        _restartButton.y = RESTART_BUTTON_POS.y;
+        _restartButton.useHandCursor = _restartButton.buttonMode = true;
+        _restartButton.mouseChildren = false;
+
+        _restartButton.addEventListener(MouseEvent.CLICK, onRefreshButtonClick);
+        Config.stage.addChild(_restartButton);
+    }
+
+    private function onRefreshButtonClick(e:MouseEvent):void {
+        stopSimulation();
+        showRestartRaceWindow(Tr.restartBrawlText, false);
     }
 
     // we should be able to dispatch game events in random project files
@@ -78,18 +99,13 @@ public class SceneController extends EventDispatcher{
 
     private function onNeedBrawlResult(data:*):void{
         DisplayObjectUtil.removeAll(_view);
-        Config.mainScene.removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
+        stopSimulation();
 
-        var resultWnd:DialogWindowView = new DialogWindowView();
+        var text:String = Tr.defeatText;
         if(data.result == GameResultResolveBehavior.VICTORY)
-            resultWnd.contentField.text = Tr.victoryText;
-        else
-            resultWnd.contentField.text = Tr.defeatText;
+            text= Tr.victoryText;
 
-        resultWnd.applyNoDeny();
-        resultWnd.x = resultWnd.y = 300;
-        resultWnd.okButtonCallback = restartRace;
-        Config.stage.addChild(resultWnd);
+        showRestartRaceWindow(text, true);
     }
 
     private function onNeedBrawl(data:*):void{
@@ -108,7 +124,7 @@ public class SceneController extends EventDispatcher{
             _view.alpha = 0.5;
         }
 
-        Config.mainScene.addEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
+        startSimulation();
     }
 
     private function mainLoop(e:EnterFrameEvent):void {
@@ -122,11 +138,33 @@ public class SceneController extends EventDispatcher{
     }
 
     private function restartRace():void{
-        Config.mainScene.removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
+        stopSimulation();
         DisplayObjectUtil.removeAll(_view);
         _fieldController.destroy();
 
         EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_BRAWL));
     }
+
+    private function showRestartRaceWindow(text:String, noDeny:Boolean = false):void{
+        var resultWnd:DialogWindowView = new DialogWindowView();
+        resultWnd.contentField.text = text;
+
+        if(noDeny)
+            resultWnd.applyNoDeny();
+
+        resultWnd.x = resultWnd.y = 300;
+        resultWnd.okButtonCallback = restartRace;
+        resultWnd.cancelButtonCallback = resultWnd.closeButtonCallback = startSimulation;
+        Config.stage.addChild(resultWnd);
+    }
+
+    private function startSimulation():void{
+        Config.mainScene.addEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
+    }
+
+    private function stopSimulation():void{
+        Config.mainScene.removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
+    }
+
 }
 }
