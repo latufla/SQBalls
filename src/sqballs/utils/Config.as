@@ -28,8 +28,7 @@ public class Config {
     public static const DEBUG:Boolean = false;
     public static const DEFAULT_VIEWPORT_SIZE:Rectangle = new Rectangle(0, 0, 1024, 768);
 
-
-    // in game
+      // in game
     public static var stage:Stage;
     public static var mainScene:Engine;
 
@@ -43,10 +42,10 @@ public class Config {
     public static var enemyBallColors:Array = [0x0000FF, 0xFF0000];
 
     public static var ballRadiusSteps:Array = [20, 30, 40];
-    public static var playerBallRadius:uint = ballRadiusSteps[0];
+    public static var playerBallRadius:uint = ballRadiusSteps[1];
 
     public static var levelRect:Rectangle = new Rectangle(44, 40, 935, 668);
-    public static var maxBallsCount:uint = 4;
+    public static var maxBallsCount:uint = 10; // if all can`t be placed, it`ll be less
     //--------
 
     // external update part

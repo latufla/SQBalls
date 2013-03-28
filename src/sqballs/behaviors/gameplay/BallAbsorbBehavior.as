@@ -63,7 +63,6 @@ public class BallAbsorbBehavior extends BehaviorBase{
     override protected function onBeginInteraction(obj1:ObjectBase, obj2:ObjectBase):void{
         var b1:Ball = obj1 as Ball;
         var b2:Ball = obj2 as Ball;
-        trace(b1, b2);
 
         if(!shouldAbsorb(b1,  b2))
             return;

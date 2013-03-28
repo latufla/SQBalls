@@ -15,6 +15,8 @@ import sqballs.behaviors.gamepad.GamepadBehavior;
 
 public class UserControlBehavior extends ControlBehavior{
 
+    private static const MAGNITUDE_MULTIPLIER:uint = 12;
+
     private var _gamepad:GamepadBehavior;
 
     public function UserControlBehavior() {
@@ -56,7 +58,7 @@ public class UserControlBehavior extends ControlBehavior{
         if(!_gamepad.touched)
             return 0;
 
-        return _gamepad.touchInfo.touchLength;
+        return MAGNITUDE_MULTIPLIER * _gamepad.touchInfo.touchLength;
     }
 }
 }

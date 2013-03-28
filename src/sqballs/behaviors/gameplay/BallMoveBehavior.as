@@ -19,7 +19,6 @@ import sqballs.model.SQObjectBase;
 public class BallMoveBehavior extends BehaviorBase{
 
     public static const MAX_MAGNITUDE:int = 250;
-    public static const MAGNITUDE_K:int = 2;
     public static const STOPPAGE_MIN_VELOCITY:int = 10;
 
     public function BallMoveBehavior() {
@@ -55,8 +54,8 @@ public class BallMoveBehavior extends BehaviorBase{
         if(magnitude > MAX_MAGNITUDE)
             magnitude = MAX_MAGNITUDE;
 
-        pos.x *= magnitude * obj.mass * MAGNITUDE_K;
-        pos.y *= magnitude * obj.mass * MAGNITUDE_K;
+        pos.x *= magnitude * obj.mass;
+        pos.y *= magnitude * obj.mass;
 
         obj.applyImpulse(pos);
     }

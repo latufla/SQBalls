@@ -15,7 +15,7 @@ import sqballs.utils.Config;
 
 public class GamepadBehavior extends BehaviorBase{
 
-    public static const TOUCH_LENGTH_STEP:int = 5;
+    public static const TOUCH_LENGTH_STEP:int = 1;
 
     // default keys
     private static const TAP:String = "tap";

@@ -16,7 +16,6 @@ import core.utils.nape.PhysEngineConnector;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 
-import sqballs.controller.BallController;
 
 import sqballs.utils.Config;
 
@@ -77,9 +76,8 @@ public class Ball extends SQObjectBase{
     }
 
     public function isInDefenceRadius(obj:Ball):Boolean{
-        var distanceV:Point = this.position.subtract(obj.position);
         var distance:int = getDistanceTo(obj);
-        return distance <= _defenceRadius
+        return distance <= _defenceRadius;
     }
 
     public function getDistanceTo(obj:Ball):uint{

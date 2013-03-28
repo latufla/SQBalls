@@ -18,7 +18,8 @@ import sqballs.utils.Config;
 
 //TODO: divide into strategic and triggerin layers
 public class AIControlBehavior extends ControlBehavior{
-    private static const DEFAULT_MAGNITUDE:int = 2;
+    private static const DEFAULT_AVOID_MAGNITUDE:int = 4;
+    private static const DEFAULT_ASPIRE_MAGNITUDE:int = 4;
 
     private var _moveFrom:Point;
     private var _magnitude:int;
@@ -44,15 +45,18 @@ public class AIControlBehavior extends ControlBehavior{
         var enemyCs:Vector.<ControllerBase> = Config.fieldController.getControllersByClass(BallController);
         VectorUtil.removeElement(enemyCs, _controller);
 
-        var avoidFrom:Point = resolveAvoidBehavior(b, enemyCs);
-        var aspireFrom:Point = resolveAspireBehavior(b, enemyCs);
+        var avoid:Point = resolveAvoidBehavior(b, enemyCs);
+        var aspire:Point = resolveAspireBehavior(b, enemyCs);
 
-        if(avoidFrom && !aspireFrom) {
-            _moveFrom = avoidFrom;
-        }else if(!avoidFrom && aspireFrom){
-            _moveFrom = aspireFrom;
-        } else if(avoidFrom && aspireFrom){
-            _moveFrom = avoidFrom.add(aspireFrom);
+        if(avoid) {
+            _moveFrom = avoid;
+            _magnitude = DEFAULT_AVOID_MAGNITUDE;
+        }else if(aspire){
+            _moveFrom = aspire;
+            _magnitude = DEFAULT_ASPIRE_MAGNITUDE;
+        } else{
+            _moveFrom = null
+            _magnitude = 0;
         }
     }
 
@@ -67,14 +71,13 @@ public class AIControlBehavior extends ControlBehavior{
         // aspire to closest
         if(allSmallerBallCs.length > 0){
             var bPos:Point = b.position;
-            _magnitude = DEFAULT_MAGNITUDE;
             return bPos.add(bPos.subtract(allSmallerBallCs[0].object.position));
         }
 
-        _magnitude = 0;
         return null;
     }
 
+    // TODO: extract boolean condition
     private function resolveAvoidBehavior(b:Ball, enemyCs:Vector.<ControllerBase>):Point {
         var enemyCs:Vector.<ControllerBase> = Config.fieldController.getControllersByClass(BallController);
         VectorUtil.removeElement(enemyCs, _controller);
@@ -83,18 +86,15 @@ public class AIControlBehavior extends ControlBehavior{
         var bArea:int = b.area;
         var allInRadiusAndBigger:Vector.<ControllerBase> = enemyCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
             var b2:Ball = e.object as Ball;
-            return b.isInDefenceRadius(b2) && ((b2).area > bArea || (e == playerBallC && (b2).area == bArea));
+            return b.isInDefenceRadius(b2) && (int((b2).area) > bArea || (e == playerBallC && int((b2).area) == bArea));
         });
 
         allInRadiusAndBigger.sort(sortOnDistance);
 
         // run from closest bigger ball
-        if(allInRadiusAndBigger.length > 0){
-            _magnitude = DEFAULT_MAGNITUDE;
+        if(allInRadiusAndBigger.length > 0)
             return allInRadiusAndBigger[0].object.position;
-        }
 
-        _magnitude = 0;
         return null;
     }
 
