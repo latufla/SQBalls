@@ -10,7 +10,7 @@ import flash.text.TextField;
 import flash.text.TextFormat;
 
 public class FontUtil {
-    [Embed(source="../../../assets/fonts/ARIALUNI.TTF", fontName = "myArial", mimeType = "application/x-font", unicodeRange = "U+0020-007E", fontWeight="normal", fontStyle="normal", advancedAntiAliasing="true", embedAsCFF="false")]
+    [Embed(source="../../../assets/fonts/ARLRDBD.TTF", fontName = "myArial", mimeType = "application/x-font", unicodeRange = "U+0020-007E", fontWeight="normal", fontStyle="normal", advancedAntiAliasing="true", embedAsCFF="false")]
     private var myArialFont:Class;
 
     public function FontUtil() {
