@@ -15,10 +15,11 @@ import sqballs.behaviors.control.ControlBehavior;
 import sqballs.model.Ball;
 import sqballs.model.SQObjectBase;
 
+//locomotion
 public class BallMoveBehavior extends BehaviorBase{
 
-    public static const MAX_MAGNITUDE:int = 50;
-    public static const MAGNITUDE_K:int = 10;
+    public static const MAX_MAGNITUDE:int = 250;
+    public static const MAGNITUDE_K:int = 2;
     public static const STOPPAGE_MIN_VELOCITY:int = 10;
 
     public function BallMoveBehavior() {

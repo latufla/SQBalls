@@ -54,7 +54,7 @@ public class Engine extends Sprite{
         _preloader = FlashAssetsLib.instance.createAssetBy(FlashAssetsLib.PRELOADER_VIEW);
         _preloader.play();
         Config.stage.addChild(_preloader);
-        DisplayObjectUtil.alignByCenter(_preloader, true, true);
+        DisplayObjectUtil.alignByCenter(_preloader, Config.DEFAULT_VIEWPORT_SIZE.width, Config.DEFAULT_VIEWPORT_SIZE.height);
     }
 
     private function removePreloader():void{

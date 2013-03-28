@@ -14,6 +14,9 @@ import flash.events.MouseEvent;
 import sqballs.utils.Config;
 
 public class GamepadBehavior extends BehaviorBase{
+
+    public static const TOUCH_LENGTH_STEP:int = 5;
+
     // default keys
     private static const TAP:String = "tap";
 
@@ -56,7 +59,7 @@ public class GamepadBehavior extends BehaviorBase{
         super.doStep(step);
 
         if(_activeKeys[TAP][0] == MouseEvent.MOUSE_DOWN)
-            _touchLength++;
+            _touchLength += TOUCH_LENGTH_STEP;
 
         if(_shouldSetIdle)
             _activeKeys[TAP] = [IDLE];

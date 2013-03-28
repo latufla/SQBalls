@@ -16,8 +16,9 @@ import sqballs.controller.BallController;
 import sqballs.model.Ball;
 import sqballs.utils.Config;
 
+//TODO: divide into strategic and triggerin layers
 public class AIControlBehavior extends ControlBehavior{
-    private static const DEFAULT_MAGNITUDE:int = 1;
+    private static const DEFAULT_MAGNITUDE:int = 2;
 
     private var _moveFrom:Point;
     private var _magnitude:int;
@@ -58,9 +59,12 @@ public class AIControlBehavior extends ControlBehavior{
     private function resolveAspireBehavior(b:Ball, enemyCs:Vector.<ControllerBase>):Point {
         var bArea:int = b.area;
         var allSmallerBallCs:Vector.<ControllerBase> = enemyCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
-            return (e.object as Ball).area <= bArea;
+            return (e.object as Ball).area < bArea;
         });
 
+        allSmallerBallCs.sort(sortOnDistance);
+
+        // aspire to closest
         if(allSmallerBallCs.length > 0){
             var bPos:Point = b.position;
             _magnitude = DEFAULT_MAGNITUDE;
@@ -75,13 +79,16 @@ public class AIControlBehavior extends ControlBehavior{
         var enemyCs:Vector.<ControllerBase> = Config.fieldController.getControllersByClass(BallController);
         VectorUtil.removeElement(enemyCs, _controller);
 
+        var playerBallC:ControllerBase = Config.fieldController.playerBallController;
         var bArea:int = b.area;
         var allInRadiusAndBigger:Vector.<ControllerBase> = enemyCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
             var b2:Ball = e.object as Ball;
-            return b.isInDefenceRadius(b2) && (b2).area > bArea;
+            return b.isInDefenceRadius(b2) && ((b2).area > bArea || (e == playerBallC && (b2).area == bArea));
         });
 
-        // run from random bigger ball
+        allInRadiusAndBigger.sort(sortOnDistance);
+
+        // run from closest bigger ball
         if(allInRadiusAndBigger.length > 0){
             _magnitude = DEFAULT_MAGNITUDE;
             return allInRadiusAndBigger[0].object.position;
@@ -97,6 +104,18 @@ public class AIControlBehavior extends ControlBehavior{
 
     override public function get magnitude():int {
         return _magnitude;
+    }
+
+    private function sortOnDistance(a:ControllerBase, b:ControllerBase):int{
+        var aDist:uint = (a.object as Ball).getDistanceTo(_controller.object as Ball);
+        var bDist:uint = (b.object as Ball).getDistanceTo(_controller.object as Ball);
+
+        if(aDist < bDist)
+            return -1;
+        else if(aDist > bDist)
+            return 1;
+
+        return 0;
     }
 
 }

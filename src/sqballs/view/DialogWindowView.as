@@ -55,7 +55,7 @@ public class DialogWindowView extends Sprite{
 
     public function applyNoDeny():void{
         cancelButton.visible = closeButton.visible = false;
-        DisplayObjectUtil.alignByCenter(okButton, true, false);
+        DisplayObjectUtil.alignByCenter(okButton, _container.width);
     }
 
      public function get contentField():TextField{
@@ -116,10 +116,11 @@ public class DialogWindowView extends Sprite{
     }
 
     protected function onOkButtonClick(e:MouseEvent = null):void {
+        DisplayObjectUtil.tryRemove(this);
+        removeEventListeners();
+
         if(_okButtonCallback)
             _okButtonCallback();
-
-        onCloseButtonClick();
     }
 }
 }

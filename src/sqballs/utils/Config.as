@@ -26,6 +26,8 @@ public class Config {
     public static const EXTERNAL_CONFIG:String = "../../../assets/config.txt";
     public static const FPS:uint = 60;
     public static const DEBUG:Boolean = false;
+    public static const DEFAULT_VIEWPORT_SIZE:Rectangle = new Rectangle(0, 0, 1024, 768);
+
 
     // in game
     public static var stage:Stage;
@@ -40,11 +42,11 @@ public class Config {
     public static var playerBallColor:uint = 0xFFFFFF;
     public static var enemyBallColors:Array = [0x0000FF, 0xFF0000];
 
-    public static var ballRadiusSteps:Array = [30, 40, 50];
-    public static var playerBallRadius:uint = ballRadiusSteps[1];
+    public static var ballRadiusSteps:Array = [20, 30, 40];
+    public static var playerBallRadius:uint = ballRadiusSteps[0];
 
     public static var levelRect:Rectangle = new Rectangle(44, 40, 935, 668);
-    public static var maxBallsCount:uint = 20;
+    public static var maxBallsCount:uint = 4;
     //--------
 
     // external update part

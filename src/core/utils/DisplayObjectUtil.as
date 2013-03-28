@@ -35,23 +35,14 @@ public class DisplayObjectUtil {
         return bd;
     }
 
-    public static function alignByCenter(view:*, byX:Boolean, byY:Boolean):void{
-        if(!view || !view.parent)
+    public static function alignByCenter(view:*, parentWidth:int = 0, parentHeight:int = 0):void{
+        if(!view)
             return;
 
-        var parentWidth:uint = view.parent.width;
-        var parentHeight:uint = view.parent.height;
-
-        var stage:Stage = view.parent as Stage;
-        if(stage){
-            parentWidth = stage.stageWidth;
-            parentHeight = stage.stageHeight;
-        }
-
-        if(byX)
+        if(parentWidth != 0)
             view.x = parentWidth / 2 - view.width / 2;
 
-        if(byY)
+        if(parentHeight != 0)
             view.y = parentHeight / 2 - view.height / 2
     }
 

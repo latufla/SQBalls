@@ -7,6 +7,7 @@
  */
 package sqballs.model {
 import core.controller.ControllerBase;
+import core.model.ObjectBase;
 import core.utils.nape.CustomCircle;
 import core.utils.nape.CustomMaterial;
 import core.utils.nape.CustomShape;
@@ -77,10 +78,13 @@ public class Ball extends SQObjectBase{
 
     public function isInDefenceRadius(obj:Ball):Boolean{
         var distanceV:Point = this.position.subtract(obj.position);
-        var distance:int = Math.abs(distanceV.length);
-        var defenceDistance:int = this.radius - obj.radius + _defenceRadius;
-        return distance <= defenceDistance
+        var distance:int = getDistanceTo(obj);
+        return distance <= _defenceRadius
     }
 
+    public function getDistanceTo(obj:Ball):uint{
+        var distanceV:Point = this.position.subtract(obj.position);
+        return distanceV.length - obj.radius - this.radius;
+    }
 }
 }

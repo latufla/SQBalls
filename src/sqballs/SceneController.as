@@ -40,6 +40,7 @@ public class SceneController extends EventDispatcher{
     private var _gameEventHandlers:Dictionary; // sqballs.event type -> function
 
     private var _view:MovieClip;
+    private var _dialogWindow:DialogWindowView
     private var _restartButton:Sprite;
 
     private var _fieldController:SQFieldController;
@@ -71,8 +72,6 @@ public class SceneController extends EventDispatcher{
         _restartButton.useHandCursor = _restartButton.buttonMode = true;
         _restartButton.mouseChildren = false;
         FontUtil.initDefaultField(_restartButton["label"], Tr.restart, 14);
-
-        _restartButton.addEventListener(MouseEvent.CLICK, onRefreshButtonClick);
         Config.stage.addChild(_restartButton);
     }
 
@@ -101,7 +100,7 @@ public class SceneController extends EventDispatcher{
     }
 
     private function onNeedBrawlResult(data:*):void{
-        DisplayObjectUtil.removeAll(_view);
+        clear();
         stopSimulation();
 
         var text:String = Tr.defeatText;
@@ -112,8 +111,7 @@ public class SceneController extends EventDispatcher{
     }
 
     private function onNeedBrawl(data:*):void{
-        DisplayObjectUtil.removeAll(_view);
-
+        clear();
         Config.gameInfo.refresh();
 
         _fieldController = new SQFieldController(FieldLib.getFieldByLevel());
@@ -127,7 +125,7 @@ public class SceneController extends EventDispatcher{
             _view.alpha = 0.5;
         }
 
-        startSimulation();
+       startSimulation();
     }
 
     private function mainLoop(e:EnterFrameEvent):void {
@@ -142,32 +140,41 @@ public class SceneController extends EventDispatcher{
     }
 
     private function restartRace():void{
+        clear();
         stopSimulation();
-        DisplayObjectUtil.removeAll(_view);
+
         _fieldController.destroy();
 
         EventHeap.instance.dispatch(new GameEvent(GameEvent.NEED_BRAWL));
     }
 
     private function showRestartRaceWindow(text:String, noDeny:Boolean = false):void{
-        var resultWnd:DialogWindowView = new DialogWindowView();
-        resultWnd.contentField.text = text;
+        _restartButton.removeEventListener(MouseEvent.CLICK, onRefreshButtonClick);
+
+        _dialogWindow = new DialogWindowView();
+        _dialogWindow.contentField.text = text;
 
         if(noDeny)
-            resultWnd.applyNoDeny();
+            _dialogWindow.applyNoDeny();
 
-        resultWnd.okButtonCallback = restartRace;
-        resultWnd.cancelButtonCallback = resultWnd.closeButtonCallback = startSimulation;
-        Config.stage.addChild(resultWnd);
-        DisplayObjectUtil.alignByCenter(resultWnd, true, true);
+        _dialogWindow.okButtonCallback = restartRace;
+        _dialogWindow.cancelButtonCallback = _dialogWindow.closeButtonCallback = startSimulation;
+        _view.addChild(_dialogWindow);
+        DisplayObjectUtil.alignByCenter(_dialogWindow, Config.DEFAULT_VIEWPORT_SIZE.width, Config.DEFAULT_VIEWPORT_SIZE.height);
     }
 
     private function startSimulation():void{
+        _restartButton.addEventListener(MouseEvent.CLICK, onRefreshButtonClick);
         Config.mainScene.addEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
     }
 
     private function stopSimulation():void{
+        _restartButton.removeEventListener(MouseEvent.CLICK, onRefreshButtonClick);
         Config.mainScene.removeEventListener(EnterFrameEvent.ENTER_FRAME, mainLoop);
+    }
+
+    private function clear():void{
+        DisplayObjectUtil.removeAll(_view);
     }
 
 }
