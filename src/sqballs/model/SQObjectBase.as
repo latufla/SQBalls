@@ -13,8 +13,8 @@ import sqballs.utils.Config;
 import sqballs.utils.StarlingAssetsLib;
 
 public class SQObjectBase extends ObjectBase {
-    protected var _pivotX:int = 50;
-    protected var _pivotY:int = 50;
+    protected var _pivotX:int = 80;
+    protected var _pivotY:int = 80;
 
     public function SQObjectBase() {
         super();

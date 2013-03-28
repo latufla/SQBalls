@@ -9,7 +9,6 @@ package sqballs.controller {
 import core.behaviors.BehaviorBase;
 import core.model.ObjectBase;
 import core.utils.DisplayObjectUtil;
-import core.utils.PixelMaskDisplayObject;
 
 import flash.display.Bitmap;
 
@@ -21,7 +20,6 @@ import sqballs.model.Ball;
 
 import starling.display.Image;
 import starling.display.DisplayObject;
-import starling.display.Sprite;
 
 public class BallController extends SQControllerBase{
 
@@ -48,17 +46,10 @@ public class BallController extends SQControllerBase{
         clear();
 
         var b:Ball = _object as Ball;
-        var bd:BitmapData = DisplayObjectUtil.createCircle(new Point(50, 50), 50, b.color);
+        // draw skin bigger, than ball
+        var bd:BitmapData = DisplayObjectUtil.createCircle(new Point(b.pivotX, b.pivotY), Ball.DEFAULT_RADIUS, b.color);
         var ballImage:Image = Image.fromBitmap(new Bitmap(bd, "auto", true));
-
-        var ballView:Sprite = new Sprite();
-        ballView.addChild(ballImage);
-
-        // TODO: opt
-        var pMask:PixelMaskDisplayObject = new PixelMaskDisplayObject();
-        pMask.addChild(ballView);
-        pMask.mask = _view.asset;
-        _view.addChild(pMask);
+        _view.addChild(ballImage);
 
         _prevColor = b.color;
     }

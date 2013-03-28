@@ -82,9 +82,9 @@ public class SQFieldController extends FieldController{
             ball.name = info.name;
 
             if(info is BotInfo)
-                bhs = new <BehaviorBase>[new BallMoveBehavior(), new BallAbsorbBehavior()]; //new BallAbsorbBehavior()
+                bhs = new <BehaviorBase>[new BallMoveBehavior(), new BallAbsorbBehavior()]; //new BallAbsorbBehavior()  new AIControlBehavior(),
             else
-                bhs = new <BehaviorBase>[new AIControlBehavior(), /*new UserControlBehavior(),*/ new BallMoveBehavior(), new BallAbsorbBehavior()]; //, new BallAbsorbBehavior()
+                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior(), new BallAbsorbBehavior()]; //, new BallAbsorbBehavior()
 
             add(BallController.create(ball, bhs));
         }

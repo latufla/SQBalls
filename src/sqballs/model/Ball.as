@@ -21,7 +21,7 @@ import sqballs.utils.Config;
 
 public class Ball extends SQObjectBase{
 
-    private static const DEFAULT_RADIUS:uint = 50;
+    public static const DEFAULT_RADIUS:uint = 80;
     private static const DEFAULT_SHAPE:CustomCircle = new CustomCircle(DEFAULT_RADIUS);
 
     protected var _radius:uint = DEFAULT_RADIUS;
