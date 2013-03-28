@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="SQBalls">
     <configurations>
-      <configuration name="SQBalls" pure-as="true" main-class="sqballs.SQBalls" output-file="SQBalls.swf" output-folder="$MODULE_DIR$/out/production/SQBalls">
+      <configuration name="SQBalls" pure-as="true" main-class="sqballs.SQBallBrawl" output-file="SQBalls.swf" output-folder="$MODULE_DIR$/out/production/SQBalls">
         <dependencies target-player="11.1">
           <entries>
             <entry library-id="b14471eb-e554-4c59-a199-fcfc0c701732">

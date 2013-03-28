@@ -47,7 +47,7 @@ public class GameResultResolveBehavior extends BehaviorBase{
         // area more or equal all enemy areas summ
         var ballCs:Vector.<ControllerBase> = fieldC.getControllersByClass(BallController);
         VectorUtil.removeElement(ballCs, playerBallC);
-        var enemyAreasSumm:Number = 0;
+        var enemyAreasSumm:int = 0;
         for each(var p:ControllerBase in ballCs){
             enemyAreasSumm += (p.object as Ball).area;
         }

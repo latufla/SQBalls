@@ -78,7 +78,7 @@ public class BallAbsorbBehavior extends BehaviorBase{
         var playerBallC:BallController = (Config.fieldController as SQFieldController).playerBallController as BallController;
         var playerBall:Ball = playerBallC ? playerBallC.object as Ball : null;
 
-        return b1 && b2 && ((b1.area > b2.area) || ((b1.area == b2.area) && playerBall && (b1 == playerBall)));
+        return b1 && b2 && ((b1.area > b2.area) || (b1.area == b2.area && b2 != playerBall));
     }
 
 }

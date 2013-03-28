@@ -17,6 +17,7 @@ import sqballs.model.Ball;
 import sqballs.utils.Config;
 
 //TODO: divide into strategic and triggerin layers
+// TODO: change vec when wall
 public class AIControlBehavior extends ControlBehavior{
     private static const DEFAULT_AVOID_MAGNITUDE:int = 4;
     private static const DEFAULT_ASPIRE_MAGNITUDE:int = 4;
@@ -63,7 +64,7 @@ public class AIControlBehavior extends ControlBehavior{
     private function resolveAspireBehavior(b:Ball, enemyCs:Vector.<ControllerBase>):Point {
         var bArea:int = b.area;
         var allSmallerBallCs:Vector.<ControllerBase> = enemyCs.filter(function (e:ControllerBase, i:int, v:Vector.<ControllerBase>):Boolean{
-            return (e.object as Ball).area < bArea;
+            return int((e.object as Ball).area) < bArea;
         });
 
         allSmallerBallCs.sort(sortOnDistance);

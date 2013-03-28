@@ -9,11 +9,11 @@ import sqballs.utils.Config;
 import starling.core.Starling;
 
 [SWF(width="1024", height="768", backgroundColor="#000000", frameRate="60")]
-public class SQBalls extends Sprite {
+public class SQBallBrawl extends Sprite {
 
     private var _starlingConnector:Starling;
 
-    public function SQBalls() {
+    public function SQBallBrawl() {
         addEventListener(Event.ADDED_TO_STAGE, onAddToStage);
     }
 
