@@ -14,6 +14,8 @@ import core.utils.nape.CustomMaterial;
 
 import flash.geom.Point;
 
+import sqballs.behaviors.control.ai.AIControlBehavior;
+
 import sqballs.behaviors.control.user.UserControlBehavior;
 import sqballs.behaviors.gameplay.BallAbsorbBehavior;
 import sqballs.behaviors.gameplay.BallMoveBehavior;
@@ -82,7 +84,7 @@ public class SQFieldController extends FieldController{
             if(info is BotInfo)
                 bhs = new <BehaviorBase>[new BallMoveBehavior(), new BallAbsorbBehavior()]; //new BallAbsorbBehavior()
             else
-                bhs = new <BehaviorBase>[new UserControlBehavior(), new BallMoveBehavior(), new BallAbsorbBehavior()]; //, new BallAbsorbBehavior()
+                bhs = new <BehaviorBase>[new AIControlBehavior(), /*new UserControlBehavior(),*/ new BallMoveBehavior(), new BallAbsorbBehavior()]; //, new BallAbsorbBehavior()
 
             add(BallController.create(ball, bhs));
         }

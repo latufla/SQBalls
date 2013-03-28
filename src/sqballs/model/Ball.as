@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.model {
+import core.controller.ControllerBase;
 import core.utils.nape.CustomCircle;
 import core.utils.nape.CustomMaterial;
 import core.utils.nape.CustomShape;
@@ -13,6 +14,8 @@ import core.utils.nape.PhysEngineConnector;
 
 import flash.geom.Point;
 import flash.geom.Rectangle;
+
+import sqballs.controller.BallController;
 
 import sqballs.utils.Config;
 
@@ -22,6 +25,7 @@ public class Ball extends SQObjectBase{
     private static const DEFAULT_SHAPE:CustomCircle = new CustomCircle(DEFAULT_RADIUS);
 
     protected var _radius:uint = DEFAULT_RADIUS;
+    protected var _defenceRadius:uint = 200;
     protected var _color:uint = Config.playerBallColor;
     protected var _rectSize:Rectangle;
 
@@ -70,5 +74,13 @@ public class Ball extends SQObjectBase{
     public function set color(value:uint):void {
         _color = value;
     }
+
+    public function isInDefenceRadius(obj:Ball):Boolean{
+        var distanceV:Point = this.position.subtract(obj.position);
+        var distance:int = Math.abs(distanceV.length);
+        var defenceDistance:int = this.radius - obj.radius + _defenceRadius;
+        return distance <= defenceDistance
+    }
+
 }
 }

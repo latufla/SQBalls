@@ -26,6 +26,7 @@ public class GameResultResolveBehavior extends BehaviorBase{
         super();
     }
 
+    // TODO: extract victory and defeat definition into functions
     override public function doStep(step:Number):void {
         if(!_enabled)
             return;
