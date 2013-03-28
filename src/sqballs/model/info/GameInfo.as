@@ -40,6 +40,7 @@ public class GameInfo {
     }
 
     // TODO: think about Knapsack problem and nonrect generate
+    // TODO: don`t generate lose-lose map
     private function generateAndPlaceUsers(player:UserInfo):Vector.<UserInfo>{
         var rect:Rectangle = Config.levelRect;
         var mBRad:int = Config.ballRadiusSteps[Config.ballRadiusSteps.length - 1] + BALL_PLACE_OFFSET;
@@ -58,10 +59,10 @@ public class GameInfo {
 
         var userInfo:UserInfo = player;
         var info:UserInfo;
-        var users:Vector.<UserInfo> = new Vector.<UserInfo>();
+        var users:Vector.<UserInfo> = new <UserInfo>[BotInfo.create(1, "ball1", anchors.shift(), Config.ballRadiusSteps[0], BotInfo.SMART)];
         var anchor:Point;
         var rnd:int;
-        var k:int = 1;
+        var k:int = 2;
         while(anchors.length != 0 && k++ <= Config.maxBallsCount){
             anchor = anchors.shift();
             if(userInfo){
