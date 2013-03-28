@@ -156,10 +156,10 @@ public class SceneController extends EventDispatcher{
         if(noDeny)
             resultWnd.applyNoDeny();
 
-        resultWnd.x = resultWnd.y = 300;
         resultWnd.okButtonCallback = restartRace;
         resultWnd.cancelButtonCallback = resultWnd.closeButtonCallback = startSimulation;
         Config.stage.addChild(resultWnd);
+        DisplayObjectUtil.alignByCenter(resultWnd, true, true);
     }
 
     private function startSimulation():void{
