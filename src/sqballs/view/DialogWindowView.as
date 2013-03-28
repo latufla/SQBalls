@@ -19,6 +19,7 @@ import flash.text.TextFormat;
 
 import sqballs.utils.FlashAssetsLib;
 import sqballs.utils.FontUtil;
+import sqballs.utils.tr.en.Tr;
 
 public class DialogWindowView extends Sprite{
 
@@ -40,15 +41,14 @@ public class DialogWindowView extends Sprite{
 
         cancelButton.buttonMode =  cancelButton.useHandCursor = true;
         cancelButton.mouseChildren = false;
+        FontUtil.initDefaultField(cancelButton.label, Tr.cancelButtonText);
 
         okButton.buttonMode =  okButton.useHandCursor = true;
         okButton.mouseChildren = false;
+        FontUtil.initDefaultField(okButton.label, Tr.okButtonText);
 
         contentField.autoSize = TextFieldAutoSize.LEFT;
-        contentField.embedFonts = true;
-        FontUtil.setDefaultFont(contentField, 16);
-        contentField.textColor = 0xFFFFFF;
-        contentField.text = "Default SQBalls dialog sign!";
+        FontUtil.initDefaultField(contentField, Tr.defaultDialogWindowText);
 
         addEventListeners();
     }

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="615a3a05-d088-430e-90b0-16d3dcb57996" name="Default" comment="small fixes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/nape-release.swc" />
-      <change type="DELETED" beforePath="E:\Work\projects\SQBalls\lib\nape-dev.swc" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/utils/Config.as" afterPath="$PROJECT_DIR$/src/sqballs/utils/Config.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/core/utils/FPSCounter.as" afterPath="$PROJECT_DIR$/src/core/utils/FPSCounter.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SQBalls.iml" afterPath="$PROJECT_DIR$/SQBalls.iml" />
+    <list default="true" id="615a3a05-d088-430e-90b0-16d3dcb57996" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/gui/GUI.fla" afterPath="$PROJECT_DIR$/assets/gui/GUI.fla" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/gui/GUI.swf" afterPath="$PROJECT_DIR$/assets/gui/GUI.swf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/view/DialogWindowView.as" afterPath="$PROJECT_DIR$/src/sqballs/view/DialogWindowView.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/utils/FontUtil.as" afterPath="$PROJECT_DIR$/src/sqballs/utils/FontUtil.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/SceneController.as" afterPath="$PROJECT_DIR$/src/sqballs/SceneController.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sqballs/utils/tr/en/Tr.as" afterPath="$PROJECT_DIR$/src/sqballs/utils/tr/en/Tr.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SQBalls.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/fragment.js2" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364438267507" ignored="false" />
     <file path="/SQBalls.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364397128673" ignored="false" />
-    <file path="/Dummy.txt" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364439374713" ignored="false" />
+    <file path="/Dummy.txt" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364439449227" ignored="false" />
     <file path="/RObjectBase.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364205963354" ignored="false" />
     <file path="/StarlingAssetsLib.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364359287652" ignored="false" />
     <file path="/ObjectBase.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364369373324" ignored="false" />
@@ -24,7 +25,7 @@
     <file path="/GameEvent.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364207278750" ignored="false" />
     <file path="/GameInfo.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364400063959" ignored="false" />
     <file path="/RaceResultView.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364207562068" ignored="false" />
-    <file path="/SceneController.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364415814121" ignored="false" />
+    <file path="/SceneController.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364440460285" ignored="false" />
     <file path="/CustomCircle.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364213998602" ignored="false" />
     <file path="/Config.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364415790664" ignored="false" />
     <file path="/PhysEngineConnector.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364370335113" ignored="false" />
@@ -52,12 +53,12 @@
     <file path="/Engine.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364411619169" ignored="false" />
     <file path="/config.txt" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364412597177" ignored="false" />
     <file path="/DialogWindow.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364397210982" ignored="false" />
-    <file path="/DialogWindowView.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364409904862" ignored="false" />
+    <file path="/DialogWindowView.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364440341815" ignored="false" />
     <file path="/BrawlEndResolveBehavior.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364402268513" ignored="false" />
-    <file path="/Tr.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364401486040" ignored="false" />
+    <file path="/Tr.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364440217353" ignored="false" />
     <file path="/GameResultResolveBehavior.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364415652451" ignored="false" />
     <file path="/FlashAssetsLib.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364410781493" ignored="false" />
-    <file path="/FontUtil.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364408461405" ignored="false" />
+    <file path="/FontUtil.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364440569658" ignored="false" />
     <file path="/FPSCounter.as" changelist="615a3a05-d088-430e-90b0-16d3dcb57996" time="1364439174569" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +121,7 @@
       <file leaf-file-name="SceneController.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sqballs/SceneController.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="25" selection-start="3104" selection-end="3104" vertical-scroll-proportion="0.0">
+            <state line="72" column="28" selection-start="2306" selection-end="2306" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#172#208#0" expanded="true" />
@@ -141,19 +142,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.as" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Config.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sqballs/utils/Config.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="46" selection-start="756" selection-end="756" vertical-scroll-proportion="0.26003823">
+            <state line="38" column="56" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tr.as" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DisplayObjectUtil.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/utils/DisplayObjectUtil.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="48" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#175#207#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DialogWindowView.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sqballs/view/DialogWindowView.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="50" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FontUtil.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sqballs/utils/FontUtil.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="57" selection-start="895" selection-end="895" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#177#205#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tr.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sqballs/utils/tr/en/Tr.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="52" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0">
+            <state line="33" column="36" selection-start="790" selection-end="790" vertical-scroll-proportion="0.5449331">
               <folding />
             </state>
           </provider>
@@ -186,33 +219,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/config.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="67" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BallAbsorbBehavior.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BallAbsorbBehavior.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="21" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ball.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sqballs/model/Ball.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="62" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -235,19 +241,19 @@
         <option value="$PROJECT_DIR$/src/sqballs/model/info/GameInfo.as" />
         <option value="$PROJECT_DIR$/src/sqballs/utils/tr/Tr.as" />
         <option value="$PROJECT_DIR$/src/sqballs/behaviors/gameplay/BrawlEndResolveBehavior.as" />
-        <option value="$PROJECT_DIR$/src/sqballs/utils/FontUtil.as" />
-        <option value="$PROJECT_DIR$/src/sqballs/view/DialogWindowView.as" />
         <option value="$PROJECT_DIR$/src/sqballs/utils/FlashAssetsLib.as" />
         <option value="$PROJECT_DIR$/src/core/utils/DisplayObjectUtil.as" />
         <option value="$PROJECT_DIR$/src/sqballs/Engine.as" />
         <option value="$PROJECT_DIR$/src/sqballs/model/Ball.as" />
         <option value="$PROJECT_DIR$/assets/config.txt" />
         <option value="$PROJECT_DIR$/src/sqballs/controller/SQFieldController.as" />
-        <option value="$PROJECT_DIR$/src/sqballs/utils/tr/en/Tr.as" />
         <option value="$PROJECT_DIR$/src/sqballs/behaviors/gameplay/GameResultResolveBehavior.as" />
-        <option value="$PROJECT_DIR$/src/sqballs/SceneController.as" />
         <option value="$PROJECT_DIR$/src/core/utils/FPSCounter.as" />
         <option value="$PROJECT_DIR$/src/sqballs/utils/Config.as" />
+        <option value="$PROJECT_DIR$/src/sqballs/view/DialogWindowView.as" />
+        <option value="$PROJECT_DIR$/src/sqballs/utils/tr/en/Tr.as" />
+        <option value="$PROJECT_DIR$/src/sqballs/SceneController.as" />
+        <option value="$PROJECT_DIR$/src/sqballs/utils/FontUtil.as" />
       </list>
     </option>
   </component>
@@ -671,7 +677,11 @@
       <created>1364415935908</created>
       <updated>1364415935908</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="small fixes">
+      <created>1364439476895</created>
+      <updated>1364439476895</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -682,11 +692,11 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2713568" sideWeight="0.3822342" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2839196" sideWeight="0.7510094" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2713568" sideWeight="0.38021535" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2839196" sideWeight="0.7604307" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914573" sideWeight="0.49730822" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2839196" sideWeight="0.24427995" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2839196" sideWeight="0.23485868" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -788,19 +798,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqballs/utils/FontUtil.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="52" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sqballs/utils/FlashAssetsLib.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="31" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/utils/DisplayObjectUtil.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="48" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sqballs/Engine.as">
@@ -809,13 +809,6 @@
           <folding>
             <element signature="e#173#209#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqballs/view/DialogWindowView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="32" selection-start="1272" selection-end="1272" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,27 +847,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqballs/utils/tr/en/Tr.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="52" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sqballs/behaviors/gameplay/GameResultResolveBehavior.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="56" selection-start="1756" selection-end="1756" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sqballs/SceneController.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="25" selection-start="3104" selection-end="3104" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#172#208#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -890,7 +866,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sqballs/utils/Config.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="46" selection-start="756" selection-end="756" vertical-scroll-proportion="0.26003823">
+        <state line="38" column="56" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/utils/DisplayObjectUtil.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="48" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#175#207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqballs/view/DialogWindowView.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="50" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqballs/SceneController.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="28" selection-start="2306" selection-end="2306" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#172#208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqballs/utils/FontUtil.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="57" selection-start="895" selection-end="895" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#177#205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sqballs/utils/tr/en/Tr.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="36" selection-start="790" selection-end="790" vertical-scroll-proportion="0.5449331">
           <folding />
         </state>
       </provider>

@@ -29,5 +29,13 @@ public class Tr {
     public static function get restartBrawlText():String{
         return "Wanna restart brawl?";
     }
+
+    public static function get defaultDialogWindowText():String{
+        return "Default SQBalls dialog sign.";
+    }
+
+    public static function get restart():String{
+        return "Restart";
+    }
 }
 }

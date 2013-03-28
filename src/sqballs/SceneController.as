@@ -27,6 +27,7 @@ import sqballs.model.info.UserInfo;
 import sqballs.utils.Config;
 import sqballs.utils.FieldLib;
 import sqballs.utils.FlashAssetsLib;
+import sqballs.utils.FontUtil;
 import sqballs.utils.tr.en.Tr;
 import sqballs.view.DialogWindowView;
 
@@ -69,6 +70,7 @@ public class SceneController extends EventDispatcher{
         _restartButton.y = RESTART_BUTTON_POS.y;
         _restartButton.useHandCursor = _restartButton.buttonMode = true;
         _restartButton.mouseChildren = false;
+        FontUtil.initDefaultField(_restartButton["label"], Tr.restart, 14);
 
         _restartButton.addEventListener(MouseEvent.CLICK, onRefreshButtonClick);
         Config.stage.addChild(_restartButton);

@@ -17,7 +17,14 @@ public class FontUtil {
     }
 
     public static function setDefaultFont(tField:TextField, size:uint = 16):void{
+        tField.embedFonts = true;
         tField.defaultTextFormat = new TextFormat("myArial", size);
+    }
+
+    public static function initDefaultField(tF:TextField, text:String, size:uint = 16):void{
+        FontUtil.setDefaultFont(tF, size);
+        tF.textColor = 0xFFFFFF;
+        tF.text = text
     }
 }
 }
