@@ -19,7 +19,6 @@ import flash.utils.Dictionary;
 import nape.util.BitmapDebug;
 
 import sqballs.behaviors.gameplay.GameResultResolveBehavior;
-
 import sqballs.controller.SQFieldController;
 import sqballs.event.GameEvent;
 import sqballs.model.info.GameInfo;
@@ -71,7 +70,9 @@ public class SceneController extends EventDispatcher{
         _restartButton.y = RESTART_BUTTON_POS.y;
         _restartButton.useHandCursor = _restartButton.buttonMode = true;
         _restartButton.mouseChildren = false;
+
         FontUtil.initDefaultField(_restartButton["label"], Tr.restart, 14);
+
         Config.stage.addChild(_restartButton);
     }
 
@@ -99,6 +100,7 @@ public class SceneController extends EventDispatcher{
             handler(e.data);
     }
 
+    // GAMEPLAY EVENT HANDLERS
     private function onNeedBrawlResult(data:*):void{
         clear();
         stopSimulation();
@@ -127,6 +129,7 @@ public class SceneController extends EventDispatcher{
 
        startSimulation();
     }
+    //--- END GAMEPLAY EVENT HANDLERS
 
     private function mainLoop(e:EnterFrameEvent):void {
         _fieldController.draw();

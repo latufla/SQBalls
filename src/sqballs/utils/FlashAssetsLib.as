@@ -6,8 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.utils {
-import flash.display.DisplayObjectContainer;
-import flash.display.MovieClip;
 import flash.display.Sprite;
 
 public class FlashAssetsLib {
@@ -48,7 +46,7 @@ public class FlashAssetsLib {
         try{
             asset = _assets[name];
         } catch (e:Error){
-            trace("AssetsLib -> getAssetBy(): no asset class with name: " + name);
+            trace("FlashAssetsLib -> getAssetBy(): no asset class with name: " + name);
         }
 
         return asset;

@@ -6,8 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.model {
-import core.controller.ControllerBase;
-import core.model.ObjectBase;
 import core.utils.nape.CustomCircle;
 import core.utils.nape.CustomMaterial;
 import core.utils.nape.CustomShape;
@@ -15,7 +13,6 @@ import core.utils.nape.PhysEngineConnector;
 
 import flash.geom.Point;
 import flash.geom.Rectangle;
-
 
 import sqballs.utils.Config;
 

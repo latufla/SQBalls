@@ -6,6 +6,7 @@ import flash.display.StageScaleMode;
 import flash.events.Event;
 
 import sqballs.utils.Config;
+
 import starling.core.Starling;
 
 [SWF(width="1024", height="768", backgroundColor="#000000", frameRate="60")]

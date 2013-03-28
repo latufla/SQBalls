@@ -12,11 +12,9 @@ import core.utils.EventHeap;
 import core.utils.VectorUtil;
 
 import sqballs.controller.BallController;
-
 import sqballs.controller.SQFieldController;
 import sqballs.event.GameEvent;
 import sqballs.model.Ball;
-
 
 public class GameResultResolveBehavior extends BehaviorBase{
     public static const VICTORY:String = "victory";

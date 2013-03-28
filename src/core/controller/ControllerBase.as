@@ -94,7 +94,6 @@ public class ControllerBase {
         if(!_view.asset){
             _view.asset = _object.createAsset();
             _view.draw();
-            trace("draw asset");
         }
 
         if(shouldRedrawContent)

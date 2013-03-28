@@ -10,11 +10,10 @@ import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
 import core.model.ObjectBase;
 
-import sqballs.utils.Color;
-
 import sqballs.controller.BallController;
 import sqballs.controller.SQFieldController;
 import sqballs.model.Ball;
+import sqballs.utils.Color;
 import sqballs.utils.Config;
 
 public class BallAbsorbBehavior extends BehaviorBase{
@@ -67,7 +66,7 @@ public class BallAbsorbBehavior extends BehaviorBase{
         if(!shouldAbsorb(b1,  b2))
             return;
 
-        b1.area = b1.area + b2.area;
+        b1.area = b1.area + b2.area; // TODO: use tween utils
 
         var c:ControllerBase = Config.fieldController.getControllerByObject(obj2);
         if(c)

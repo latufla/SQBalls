@@ -12,10 +12,7 @@ import core.controller.ControllerBase;
 import core.controller.FieldController;
 import core.utils.nape.CustomMaterial;
 
-import flash.geom.Point;
-
 import sqballs.behaviors.control.ai.AIControlBehavior;
-
 import sqballs.behaviors.control.user.UserControlBehavior;
 import sqballs.behaviors.gameplay.BallAbsorbBehavior;
 import sqballs.behaviors.gameplay.BallMoveBehavior;

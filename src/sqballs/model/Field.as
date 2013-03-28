@@ -12,7 +12,6 @@ import flash.display.BitmapData;
 
 import sqballs.model.info.BotInfo;
 import sqballs.model.info.UserInfo;
-import sqballs.utils.Config;
 
 public class Field extends SQObjectBase{
 

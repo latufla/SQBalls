@@ -7,7 +7,6 @@
  */
 package sqballs.view {
 import core.utils.DisplayObjectUtil;
-import core.utils.DisplayObjectUtil;
 
 import flash.display.DisplayObjectContainer;
 import flash.display.MovieClip;
@@ -15,7 +14,6 @@ import flash.display.Sprite;
 import flash.events.MouseEvent;
 import flash.text.TextField;
 import flash.text.TextFieldAutoSize;
-import flash.text.TextFormat;
 
 import sqballs.utils.FlashAssetsLib;
 import sqballs.utils.FontUtil;

@@ -9,7 +9,6 @@ package core.view {
 import core.utils.DisplayObjectUtil;
 
 import starling.display.DisplayObject;
-
 import starling.display.Sprite;
 
 public class ViewBase extends Sprite{

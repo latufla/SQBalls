@@ -90,22 +90,10 @@ public class PhysEngineConnector {
     }
 
     public function destroyField(f:FieldController):void{
-        trace("PhysEngineConnector destroyField:");
-        trace("objects:");
-        ObjectUtil.debugTrace(_physObjects);
-
-        trace("obj interaction handlers:");
-        ObjectUtil.debugTrace(_handlers);
-
         var space:Space = _spaces[f];
         removeEventListeners(space);
-        trace("space listeners:", space.listeners);
-        trace("space bodies:", space.bodies);
         space.clear();
         delete _spaces[f];
-        trace("spaces:");
-        ObjectUtil.debugTrace(_spaces);
-
     }
 
     public function getPosition(obj:ObjectBase):Point{

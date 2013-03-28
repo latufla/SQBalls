@@ -25,7 +25,7 @@ public class Config {
 
     public static const EXTERNAL_CONFIG:String = "../../../config.txt";
     public static const FPS:uint = 60;
-    public static const DEBUG:Boolean = false;
+    public static const DEBUG:Boolean = false; // show nape debug layer
     public static const DEFAULT_VIEWPORT_SIZE:Rectangle = new Rectangle(0, 0, 1024, 768);
 
       // in game

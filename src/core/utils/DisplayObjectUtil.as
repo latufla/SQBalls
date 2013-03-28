@@ -8,7 +8,6 @@
 package core.utils {
 import flash.display.BitmapData;
 import flash.display.Shape;
-import flash.display.Stage;
 import flash.geom.Point;
 
 public class DisplayObjectUtil {

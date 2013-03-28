@@ -4,7 +4,6 @@ package sqballs.utils
 
 import flash.geom.ColorTransform;
 
-
 /**
  * The Color class extends the Flash Player ColorTransform class,
  * adding the ability to control brightness and tint.

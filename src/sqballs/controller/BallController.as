@@ -11,15 +11,13 @@ import core.model.ObjectBase;
 import core.utils.DisplayObjectUtil;
 
 import flash.display.Bitmap;
-
 import flash.display.BitmapData;
-
 import flash.geom.Point;
 
 import sqballs.model.Ball;
 
-import starling.display.Image;
 import starling.display.DisplayObject;
+import starling.display.Image;
 
 public class BallController extends SQControllerBase{
 
