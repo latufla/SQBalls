@@ -10,7 +10,7 @@ import core.behaviors.BehaviorBase;
 import core.model.ObjectBase;
 import core.utils.DisplayObjectUtil;
 import core.utils.VectorUtil;
-import core.utils.nape.PhysEngineConnector;
+import core.utils.phys.PhysEngineConnector;
 
 public class FieldController extends ControllerBase{
 

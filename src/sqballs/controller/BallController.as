@@ -41,7 +41,7 @@ public class BallController extends SQControllerBase{
     // TODO: pool of initial ball views
     // used PixelMask to overlay initial ball, but
     // was performance lack on weak laptops, when more than 10 balls
-    // http://wiki.starling-framework.org/extensions/pixelmask
+    // http://wiki.graphic-framework.org/extensions/pixelmask
     override protected function redrawContent():void{
         _initialContentView ||= _view.asset as DisplayObject;
         clear();

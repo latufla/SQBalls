@@ -5,7 +5,7 @@
  * Time: 16:17
  * To change this template use File | Settings | File Templates.
  */
-package core.utils.nape {
+package core.utils.phys {
 import flash.geom.Rectangle;
 
 import nape.shape.Polygon;

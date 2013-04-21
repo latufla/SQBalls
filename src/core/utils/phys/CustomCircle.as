@@ -5,7 +5,7 @@
  * Time: 17:57
  * To change this template use File | Settings | File Templates.
  */
-package core.utils.nape {
+package core.utils.phys {
 
 import nape.geom.Vec2;
 import nape.shape.Circle;

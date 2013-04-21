@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package sqballs.model {
-import core.utils.nape.PhysEngineConnector;
+import core.utils.phys.PhysEngineConnector;
 
 import flash.display.BitmapData;
 

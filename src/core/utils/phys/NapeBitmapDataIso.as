@@ -5,7 +5,7 @@
  * Time: 15:09
  * To change this template use File | Settings | File Templates.
  */
-package core.utils.nape {
+package core.utils.phys {
 import flash.display.BitmapData;
 
 import nape.geom.AABB;

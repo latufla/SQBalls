@@ -5,7 +5,7 @@
  * Time: 15:47
  * To change this template use File | Settings | File Templates.
  */
-package core.utils.nape {
+package core.utils.phys {
 import core.controller.FieldController;
 import core.model.ObjectBase;
 import core.utils.ObjectUtil;

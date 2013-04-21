@@ -10,7 +10,7 @@ package sqballs.controller {
 import core.behaviors.BehaviorBase;
 import core.controller.ControllerBase;
 import core.controller.FieldController;
-import core.utils.nape.CustomMaterial;
+import core.utils.phys.CustomMaterial;
 
 import sqballs.behaviors.control.ai.AIControlBehavior;
 import sqballs.behaviors.control.user.UserControlBehavior;

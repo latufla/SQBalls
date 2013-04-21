@@ -5,7 +5,7 @@
  * Time: 16:12
  * To change this template use File | Settings | File Templates.
  */
-package core.utils.nape {
+package core.utils.phys {
 import nape.phys.Material;
 
 public class CustomMaterial {

@@ -8,10 +8,11 @@
 package core.model {
 
 import core.controller.ControllerBase;
-import core.utils.nape.CustomMaterial;
-import core.utils.nape.CustomPolygon;
-import core.utils.nape.CustomShape;
-import core.utils.nape.PhysEngineConnector;
+import core.utils.graphic.GraphicsEngineConnector;
+import core.utils.phys.CustomMaterial;
+import core.utils.phys.CustomPolygon;
+import core.utils.phys.CustomShape;
+import core.utils.phys.PhysEngineConnector;
 
 import flash.geom.Point;
 import flash.geom.Rectangle;
